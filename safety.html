@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Social Media Safety | Digital Health Awareness</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="safety.css"/>
+
+<script type="text/javascript">
+function checkSafety(){
+  let score = 0;
+  let checks = document.querySelectorAll(".safe-check:checked");
+
+  score = checks.length;
+
+  let result = document.getElementById("safetyResult");
+
+  if(score <= 2){
+    result.innerHTML = "🚨 High Risk: Your online safety practices need serious improvement.";
+  } else if(score <= 4){
+    result.innerHTML = "⚠ Moderate Safety: Improve privacy settings and online awareness.";
+  } else {
+    result.innerHTML = "✅ Good Safety Level: You are following responsible social media practices.";
+  }
+
+  result.style.display = "block";
+}
+
+function checkScam(){
+  let answer = document.querySelector('input[name="scam"]:checked');
+  let res = document.getElementById("scamResult");
+
+  if(!answer){
+    alert("Please select an option");
+    return;
+  }
+
+  if(answer.value === "correct"){
+    res.innerHTML = "✅ Correct! Never click unknown links or share OTP/passwords.";
+  } else {
+    res.innerHTML = "❌ Wrong choice. Unknown links and prizes are common scam methods.";
+  }
+
+  res.style.display = "block";
+}
+</script>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+<h1 class="logo">Digital Health Awareness</h1>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="screen.html">Screen Time</a></li>
+<li><a href="addiction.html">Cyber Addiction</a></li>
+<li><a href="self-assessment.html">Self Assessment</a></li>
+<li><a href="doctor.html">Contact Doctor</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+<div class="hero-text">
+<span class="tagline">SOCIAL MEDIA SAFETY MODULE</span>
+<h2>Stay Smart. Stay Safe. Stay Protected.</h2>
+<p>
+This module educates users about responsible online behavior, data privacy,
+cyber threats, and digital communication ethics.
+</p>
+</div>
+
+<div class="hero-img">
+<img src="assets/images/social-safety.png" alt="Social Safety"/>
+</div>
+</section>
+
+<!-- ===== SAFETY IMPORTANCE ===== -->
+<section class="screen-box">
+<h2>🔐 Why Social Media Safety Matters</h2>
+<p>
+Unsafe social media practices can lead to identity theft, cyberbullying,
+mental stress, misinformation, and financial fraud.
+</p>
+
+<ul>
+<li> Protects personal information</li>
+<li> Prevents online scams</li>
+<li> Reduces cyberbullying impact</li>
+<li> Promotes responsible communication</li>
+</ul>
+</section>
+
+<!-- ===== SELF CHECK ===== -->
+<section class="screen-box">
+<h2>🧠 Social Media Safety Self-Check</h2>
+<p>Select the practices you follow:</p>
+
+<label><input type="checkbox" class="safe-check"/> I use strong passwords</label><br/>
+<label><input type="checkbox" class="safe-check"/> I enable two-factor authentication</label><br/>
+<label><input type="checkbox" class="safe-check"/> My account is private</label><br/>
+<label><input type="checkbox" class="safe-check"/> I don’t accept unknown requests</label><br/>
+<label><input type="checkbox" class="safe-check"/> I report abusive content</label><br/>
+
+<button onclick="checkSafety()">Check My Safety Level</button>
+
+<div id="safetyResult" class="result-box"></div>
+</section>
+
+<!-- ===== SCAM TEST ===== -->
+<section class="screen-box">
+<h2>🚨 Online Scam Awareness Test</h2>
+<p>You receive a message: “You won ₹50,000! Click here and enter your details.” What should you do?</p>
+
+<label><input type="radio" name="scam" value="wrong"/> Click immediately</label><br/>
+<label><input type="radio" name="scam" value="correct"/> Ignore and report it</label><br/>
+<label><input type="radio" name="scam" value="wrong"/> Share with friends</label><br/>
+
+<button onclick="checkScam()">Submit Answer</button>
+
+<div id="scamResult" class="result-box"></div>
+</section>
+
+<!-- ===== CYBERBULLYING ===== -->
+<section class="screen-box">
+<h2>📵 Cyberbullying Prevention</h2>
+<ul>
+<li> Block and report abusive users</li>
+<li> Never respond to online harassment</li>
+<li>Save evidence of harmful messages</li>
+<li> Talk to trusted people or professionals</li>
+<li> Take breaks from toxic platforms</li>
+</ul>
+</section>
+
+<!-- ===== DIGITAL RULES ===== -->
+<section class="screen-box">
+<h2>📜 Golden Rules of Social Media Safety</h2>
+<ul>
+<li> Think before posting</li>
+<li> Never share OTPs or passwords</li>
+<li> Avoid suspicious links</li>
+<li> Verify information before sharing</li>
+<li> Protect your digital identity</li>
+</ul>
+</section>
+
+<footer class="footer">
+<p>© 2026 Digital Health Awareness System | Social Media Safety Module</p>
+</footer>
+
+</body>
+</html>

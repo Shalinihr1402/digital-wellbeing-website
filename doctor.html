@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Contact Doctor | Digital Health Awareness</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="doctor.css"/>
+
+<script type="text/javascript">
+function submitConsultation(){
+
+  var name = document.getElementById("dname").value;
+  var email = document.getElementById("demail").value;
+  var issue = document.getElementById("issue").value;
+  var urgency = document.getElementById("urgency").value;
+  var msg = document.getElementById("dmsg").value;
+
+  if(name==="" || email==="" || msg===""){
+    alert("Please complete all required fields");
+    return false;
+  }
+
+  var result = document.getElementById("doctorResult");
+  result.innerHTML = "✅ Thank you, " + name + ". Your consultation request for <b>" + issue +
+  "</b> has been submitted. Our digital health expert will contact you shortly.";
+  result.style.display = "block";
+
+  return false;
+}
+</script>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+<h1 class="logo">Digital Health Awareness</h1>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="screen.html">Screen Time</a></li>
+<li><a href="addiction.html">Cyber Addiction</a></li>
+<li><a href="safety.html">Social Safety</a></li>
+<li><a href="self-assessment.html">Self Assessment</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+<div class="hero-text">
+<span class="tagline">PROFESSIONAL DIGITAL SUPPORT</span>
+<h2>Consult a Digital Health Expert</h2>
+<p>
+Professional guidance helps in managing cyber addiction, digital stress,
+sleep disorders, and online anxiety.
+</p>
+</div>
+
+<div class="hero-img">
+<img src="assets/images/doctor.png" alt="Doctor Support"/>
+</div>
+</section>
+
+<!-- ===== DOCTOR PROFILES ===== -->
+<section class="screen-box">
+<h2>👨‍⚕️ Our Digital Health Experts</h2>
+
+<ul>
+<li><b>Dr. A. Sharma</b> – Cyber Psychology Specialist</li>
+<li><b>Dr. R. Mehta</b> – Digital Addiction Therapist</li>
+<li><b>Dr. P. Nair</b> – Sleep & Mental Wellness Consultant</li>
+<li><b>Dr. S. Rao</b> – Online Behavior Analyst</li>
+</ul>
+
+<p>
+Our certified professionals provide confidential and supportive guidance.
+</p>
+</section>
+
+<!-- ===== EMERGENCY GUIDANCE ===== -->
+<section class="screen-box">
+<h2>🚨 When Should You Seek Help Immediately?</h2>
+<ul>
+<li> Severe anxiety without internet</li>
+<li> Sleep deprivation due to screen use</li>
+<li> Online harassment or cyberbullying impact</li>
+<li> Digital behavior affecting academics/work</li>
+<li> Emotional distress or isolation</li>
+</ul>
+</section>
+
+<!-- ===== CONSULTATION FORM ===== -->
+<section class="screen-box">
+<h2>📋 Request Professional Consultation</h2>
+<p>Please fill the form below. All information is kept confidential.</p>
+
+<form onsubmit="return submitConsultation()">
+
+<input type="text" id="dname" placeholder="Full Name"/><br/><br/>
+<input type="email" id="demail" placeholder="Email Address"/><br/><br/>
+
+<select id="issue">
+<option>Cyber Addiction</option>
+<option>Digital Stress</option>
+<option>Sleep Problems</option>
+<option>Social Media Anxiety</option>
+<option>Online Safety Issues</option>
+</select><br/><br/>
+
+<select id="urgency">
+<option>Low</option>
+<option>Moderate</option>
+<option>High</option>
+<option>Critical</option>
+</select><br/><br/>
+
+<textarea id="dmsg" rows="5" placeholder="Describe your concern"></textarea><br/><br/>
+
+<button type="submit">Submit Consultation Request</button>
+
+<div id="doctorResult" class="result-box"></div>
+
+</form>
+</section>
+
+<!-- ===== SUPPORT MESSAGE ===== -->
+<section class="screen-box">
+<h2>💙 Our Commitment to You</h2>
+<ul>
+<li>100% confidential consultation</li>
+<li> Non-judgmental professional guidance</li>
+<li> Scientifically guided digital recovery plans</li>
+<li> Mental wellness focused approach</li>
+</ul>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+<p>© 2026 Digital Health Awareness System | Doctor Consultation Module</p>
+</footer>
+
+</body>
+</html>

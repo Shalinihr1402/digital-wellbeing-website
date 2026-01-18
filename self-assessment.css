@@ -1,0 +1,200 @@
+/* ================= GLOBAL ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#e0f2fe,#fce7f3,#ede9fe,#dcfce7);
+  color:#1e293b;
+  line-height:1.6;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  padding:16px 80px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(241,245,249,0.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(99,102,241,0.25);
+}
+
+.logo{
+  font-size:26px;
+  font-weight:700;
+  background:linear-gradient(90deg,#2563eb,#9333ea,#ec4899);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.navbar ul{
+  list-style:none;
+  display:flex;
+  gap:32px;
+}
+
+.navbar a{
+  text-decoration:none;
+  font-weight:600;
+  color:#1e293b;
+}
+
+.navbar a:hover{ color:#2563eb; }
+
+/* ================= MAIN ASSESSMENT BOX ================= */
+.screen-box{
+  width:75%;
+  margin:90px auto;
+  padding:70px;
+  background:rgba(255,255,255,0.92);
+  border-radius:34px;
+  box-shadow:0 35px 90px rgba(0,0,0,.12);
+}
+
+.screen-box h2{
+  text-align:center;
+  font-size:34px;
+  margin-bottom:10px;
+  background:linear-gradient(90deg,#2563eb,#9333ea,#ec4899);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.screen-box p{
+  text-align:center;
+  color:#475569;
+  margin-bottom:25px;
+}
+
+/* ================= QUESTIONS ================= */
+.screen-box b{
+  display:block;
+  margin-top:22px;
+  margin-bottom:6px;
+  color:#1e40af;
+  font-size:16px;
+}
+
+/* ================= OPTIONS ================= */
+label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:7px 0;
+  cursor:pointer;
+  font-size:15px;
+}
+
+/* ================= CUSTOM RADIO ================= */
+input[type="radio"]{
+  appearance:none;
+  width:18px;
+  height:18px;
+  border:2px solid #6366f1;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:0.3s;
+}
+
+input[type="radio"]:hover{
+  box-shadow:0 0 0 4px rgba(99,102,241,0.15);
+}
+
+input[type="radio"]:checked{
+  background:linear-gradient(135deg,#2563eb,#9333ea);
+  border-color:#2563eb;
+}
+
+input[type="radio"]:checked::after{
+  content:"";
+  width:8px;
+  height:8px;
+  background:white;
+  border-radius:50%;
+}
+
+/* ================= BUTTON ================= */
+button{
+  display:block;
+  margin:40px auto 10px;
+  padding:14px 40px;
+  border-radius:40px;
+  border:none;
+  background:linear-gradient(90deg,#2563eb,#9333ea);
+  color:white;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+  transition:.4s;
+}
+
+button:hover{
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 18px 40px rgba(147,51,234,.4);
+}
+
+/* ================= FINAL REPORT ================= */
+.result-box{
+  margin-top:35px;
+  padding:30px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#eef2ff,#fdf4ff);
+  box-shadow:0 18px 40px rgba(0,0,0,.1);
+  display:none;
+  animation:fadeIn .7s ease;
+}
+
+.result-box h3{
+  text-align:center;
+  margin-bottom:10px;
+  color:#4338ca;
+}
+
+.result-box h4{
+  margin-top:14px;
+  color:#7c3aed;
+}
+
+.result-box ul{
+  margin-top:10px;
+  padding-left:20px;
+}
+
+.result-box li{
+  margin:6px 0;
+}
+
+/* ================= FOOTER ================= */
+.footer{
+  margin-top:120px;
+  padding:36px;
+  text-align:center;
+  background:linear-gradient(90deg,#2563eb,#9333ea,#ec4899);
+  color:white;
+  font-size:14px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(15px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .navbar{ padding:14px 30px; }
+
+  .screen-box{
+    width:92%;
+    padding:45px 25px;
+  }
+}

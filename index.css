@@ -1,0 +1,242 @@
+/* ============ GLOBAL RESET ============ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #e0f2fe, #fce7f3, #ede9fe, #dcfce7);
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+/* ============ NAVBAR ============ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 16px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(241, 245, 249, 0.9);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(99,102,241,0.25);
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #2563eb, #9333ea, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #1e293b;
+  position: relative;
+  padding: 6px 0;
+}
+
+.navbar a:hover {
+  color: #2563eb;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg,#2563eb,#9333ea,#ec4899);
+  transition: 0.3s;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* ============ HERO SECTION ============ */
+.hero {
+  min-height: 92vh;
+  padding: 100px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  background: linear-gradient(120deg, rgba(255,255,255,0.75), rgba(255,255,255,0.3));
+}
+
+.hero-text {
+  max-width: 560px;
+}
+
+.tagline {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #6366f1;
+}
+
+.hero-text h2 {
+  font-size: 54px;
+  margin: 18px 0;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #2563eb, #9333ea, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+  font-size: 18px;
+  color: #334155;
+  margin-bottom: 22px;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 30px;
+  background: linear-gradient(90deg,#2563eb,#9333ea);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.4s;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 18px 35px rgba(147,51,234,0.4);
+}
+
+.hero-img img {
+  width: 440px;
+  max-width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.hero-img img:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+/* ============ CONTENT SECTIONS ============ */
+.info-section {
+  width: 82%;
+  margin: 110px auto;
+  padding: 70px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 70px;
+  align-items: center;
+  background: rgba(255,255,255,0.75);
+  border-radius: 30px;
+  box-shadow: 0 35px 80px rgba(0,0,0,0.12);
+}
+
+.info-text h3 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg,#2563eb,#9333ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.info-text p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #334155;
+}
+
+.info-text ul {
+  margin-top: 12px;
+  padding-left: 18px;
+}
+
+.info-text li {
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.section-img {
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+  transition: 0.5s ease;
+}
+
+.info-section:hover .section-img {
+  transform: translateY(-12px) scale(1.05);
+}
+
+/* ============ FEATURES BLOCK ============ */
+.challenge-section {
+  width: 72%;
+  margin: 120px auto;
+  padding: 70px;
+  text-align: center;
+  background: rgba(255,255,255,0.75);
+  border-radius: 36px;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.15);
+}
+
+.challenge-section h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.challenge-section p {
+  font-size: 16px;
+  color: #475569;
+}
+
+.challenge-section blockquote {
+  margin-top: 22px;
+  font-size: 18px;
+  color: #7c3aed;
+  line-height: 1.8;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  margin-top: 100px;
+  padding: 36px;
+  text-align: center;
+  background: linear-gradient(90deg,#2563eb,#9333ea,#ec4899);
+  color: white;
+  font-size: 14px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 14px 30px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 70px 30px;
+  }
+
+  .info-section {
+    grid-template-columns: 1fr;
+    padding: 45px 30px;
+  }
+
+  .challenge-section {
+    width: 85%;
+    padding: 50px 30px;
+  }
+}

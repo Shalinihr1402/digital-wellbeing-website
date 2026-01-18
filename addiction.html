@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Cyber Addiction Awareness | Digital Health Awareness</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="addiction.css"/>
+
+<script type="text/javascript">
+function calculateAddiction(){
+
+  let score = 0;
+  let total = document.querySelectorAll(".qa:checked");
+
+  total.forEach(q => {
+    score += parseInt(q.value);
+  });
+
+  let result = document.getElementById("addictionResult");
+
+  if(score <= 10){
+    result.innerHTML = "✅ Low Risk: You have healthy digital habits. Maintain balance and awareness.";
+  }
+  else if(score <= 20){
+    result.innerHTML = "⚠ Moderate Risk: You show early signs of cyber dependency. Consider reducing usage.";
+  }
+  else{
+    result.innerHTML = "🚨 High Risk: Strong signs of cyber addiction detected. Structured digital detox and professional help recommended.";
+  }
+
+  result.style.display = "block";
+}
+</script>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+<h1 class="logo">Digital Health Awareness</h1>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="screen.html">Screen Time</a></li>
+<li><a href="safety.html">Social Safety</a></li>
+<li><a href="self-assessment.html">Self Assessment</a></li>
+<li><a href="doctor.html">Contact Doctor</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+<div class="hero-text">
+<span class="tagline">CYBER ADDICTION MODULE</span>
+<h2>Cyber Addiction Awareness & Detection</h2>
+<p>
+Cyber addiction refers to excessive dependence on digital devices that affects
+mental health, productivity, and real-world relationships.
+</p>
+</div>
+
+<div class="hero-img">
+<img src="assets/images/cyber-addiction.png" alt="Cyber Addiction"/>
+</div>
+</section>
+
+<!-- ===== INFO ===== -->
+<section class="screen-box">
+<h2>📘 Understanding Cyber Addiction</h2>
+<p>
+Cyber addiction is a behavioral disorder involving excessive and compulsive
+use of digital platforms such as social media, gaming, and online browsing.
+</p>
+
+<ul>
+<li> Loss of time control</li>
+<li> Anxiety without internet</li>
+<li> Reduced academic/work performance</li>
+<li> Sleep disturbances</li>
+<li> Emotional imbalance</li>
+</ul>
+</section>
+
+<!-- ===== SELF TEST ===== -->
+<section class="screen-box">
+<h2>🧪 Cyber Addiction Self-Test</h2>
+<p>Select the option that best describes your behavior.</p>
+
+<p><strong>1. I lose track of time while online.</strong></p>
+<label><input type="radio" name="q1" class="qa" value="3"/> Often</label><br/>
+<label><input type="radio" name="q1" class="qa" value="2"/> Sometimes</label><br/>
+<label><input type="radio" name="q1" class="qa" value="1"/> Rarely</label><br/>
+
+<p><strong>2. I feel restless when I cannot use the internet.</strong></p>
+<label><input type="radio" name="q2" class="qa" value="3"/> Often</label><br/>
+<label><input type="radio" name="q2" class="qa" value="2"/> Sometimes</label><br/>
+<label><input type="radio" name="q2" class="qa" value="1"/> Rarely</label><br/>
+
+<p><strong>3. I neglect important tasks because of online activities.</strong></p>
+<label><input type="radio" name="q3" class="qa" value="3"/> Often</label><br/>
+<label><input type="radio" name="q3" class="qa" value="2"/> Sometimes</label><br/>
+<label><input type="radio" name="q3" class="qa" value="1"/> Rarely</label><br/>
+
+<p><strong>4. I check my phone immediately after waking up.</strong></p>
+<label><input type="radio" name="q4" class="qa" value="3"/> Always</label><br/>
+<label><input type="radio" name="q4" class="qa" value="2"/> Sometimes</label><br/>
+<label><input type="radio" name="q4" class="qa" value="1"/> Never</label><br/>
+
+<p><strong>5. My screen usage affects my sleep.</strong></p>
+<label><input type="radio" name="q5" class="qa" value="3"/> Often</label><br/>
+<label><input type="radio" name="q5" class="qa" value="2"/> Sometimes</label><br/>
+<label><input type="radio" name="q5" class="qa" value="1"/> Never</label><br/>
+
+<br/>
+<button onclick="calculateAddiction()">Analyze My Addiction Level</button>
+
+<div id="addictionResult" class="result-box"></div>
+</section>
+
+<!-- ===== COPING ===== -->
+<section class="screen-box">
+<h2>🛠 Cyber Addiction Recovery Plan</h2>
+<ul>
+<li>Set fixed online and offline hours</li>
+<li> Practice daily digital detox</li>
+<li> Turn off non-essential notifications</li>
+<li> Engage in physical activities</li>
+<li> Maintain real-world social interaction</li>
+<li> Seek professional support if needed</li>
+</ul>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+<p>© 2026 Digital Health Awareness System | Cyber Addiction Module</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Screen Time Management | Digital Health Awareness</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="screen.css"/>
+
+<script type="text/javascript">
+function analyzeScreen(){
+  var hrs = document.getElementById("hours").value;
+  var res = document.getElementById("screenResult");
+
+  if(hrs === ""){
+    alert("Please enter your daily screen hours");
+    return;
+  }
+
+  if(hrs <= 4){
+    res.innerHTML = "✅ Healthy usage. Maintain your balanced digital routine.";
+  } 
+  else if(hrs <= 7){
+    res.innerHTML = "⚠ Moderate usage. Reduce unnecessary screen exposure.";
+  } 
+  else{
+    res.innerHTML = "🚨 High screen time detected. Immediate digital detox recommended.";
+  }
+
+  res.style.display = "block";
+}
+</script>
+</head>
+
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar">
+<h1 class="logo">Digital Health Awareness</h1>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="addiction.html">Cyber Addiction</a></li>
+<li><a href="safety.html">Social Safety</a></li>
+<li><a href="self-assessment.html">Self Assessment</a></li>
+<li><a href="doctor.html">Contact Doctor</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- ========== HERO SECTION ========== -->
+<section class="hero">
+<div class="hero-text">
+<span class="tagline">SCREEN TIME MANAGEMENT MODULE</span>
+<h2>Smart Screen Time Control System</h2>
+<p>
+This module actively evaluates your screen usage and guides you toward
+healthy digital habits through personalized analysis and structured digital routines.
+</p>
+</div>
+
+<div class="hero-img">
+<img src="assets/images/screen-time.png" alt="Screen Time Management"/>
+</div>
+</section>
+
+<!-- ========== SCREEN ANALYZER ========== -->
+<section class="screen-box">
+<h2>📊 Screen Time Analyzer</h2>
+<p>Enter your average daily screen hours to assess your digital exposure.</p>
+
+<input type="number" id="hours" placeholder="Enter hours (example: 6)"/>
+<button onclick="analyzeScreen()">Analyze My Screen Time</button>
+
+<div id="screenResult" class="result-box"></div>
+</section>
+
+<!-- ========== HEALTH IMPACT ========== -->
+<section class="screen-box">
+<h2>🧠 Digital Health Impact Areas</h2>
+<div class="tool-grid">
+
+<div class="tool-card">
+<h4>👁 Vision Health</h4>
+<p>Reduces eye strain, dryness, and screen headaches.</p>
+</div>
+
+<div class="tool-card">
+<h4>😴 Sleep Quality</h4>
+<p>Prevents blue-light sleep cycle disturbance.</p>
+</div>
+
+<div class="tool-card">
+<h4>🎯 Focus Level</h4>
+<p>Improves attention span and mental clarity.</p>
+</div>
+
+<div class="tool-card">
+<h4>❤️ Mental Balance</h4>
+<p>Lowers stress, anxiety, and digital fatigue.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ========== CONTROL TOOLKIT ========== -->
+<section class="screen-box">
+<h2>⏰ Smart Control Toolkit</h2>
+<div class="tool-grid">
+<div class="tool-card">📴 App time limits</div>
+<div class="tool-card">🔔 Notification control</div>
+<div class="tool-card">🌙 Night mode & blue filter</div>
+<div class="tool-card">🧘 Digital detox breaks</div>
+<div class="tool-card">📵 Screen-free zones</div>
+<div class="tool-card">📆 Weekly digital plans</div>
+</div>
+</section>
+
+<!-- ========== ACTION PLAN ========== -->
+<section class="screen-box">
+<h2>🎯 Personal Digital Action Plan</h2>
+<ul>
+<li> Follow 30–10 focus cycle (30 min work + 10 min break)</li>
+<li> Keep phone away during meals and study time</li>
+<li> Avoid screens one hour before sleep</li>
+<li> Track screen usage daily</li>
+<li> Replace digital time with physical activity</li>
+</ul>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+<p>© 2026 Digital Health Awareness System | Screen Time Module</p>
+</footer>
+
+</body>
+</html>
