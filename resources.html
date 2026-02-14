@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Digital Wellness Resources | Digital Health Awareness</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="resources.css" />
+
+<script type="text/javascript">
+function toggleTips(){
+  var tips = document.getElementById("extraTips");
+  if(tips.style.display === "none"){
+    tips.style.display = "block";
+  } else {
+    tips.style.display = "none";
+  }
+}
+</script>
+</head>
+
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+<h1 class="logo">Digital Health Awareness</h1>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="screen.html">Screen Time</a></li>
+<li><a href="addiction.html">Cyber Addiction</a></li>
+<li><a href="safety.html">Social Safety</a></li>
+<li><a href="self-assessment.html">Self Assessment</a></li>
+<li><a href="doctor.html">Contact Doctor</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+<div class="hero-text">
+<h2>📚 Digital Wellness Resources</h2>
+<p>
+Access official digital well-being guides, safety handbooks, and downloadable
+learning materials to improve your digital lifestyle.
+</p>
+</div>
+</section>
+
+<!-- ===== DOWNLOAD SECTION ===== -->
+<section class="screen-box">
+<h2>📥 Downloadable Guides</h2>
+
+<ul>
+<li>
+<a href="resources/digital-wellness-guide.pdf" download>
+📘 Digital Wellness Complete Guide (PDF)
+</a>
+</li>
+
+<li>
+<a href="resources/screen-time-tips.pdf" download>
+⏰ Screen Time Management Tips (PDF)
+</a>
+</li>
+
+<li>
+<a href="resources/online-safety-guide.pdf" download>
+🔐 Online Safety & Privacy Guide (PDF)
+</a>
+</li>
+</ul>
+
+<p>
+All documents are delivered securely via HTTP using MIME type:
+<b>application/pdf</b>.
+</p>
+
+</section>
+
+<!-- ===== SHOW/HIDE TIPS ===== -->
+<section class="screen-box">
+<h2>💡 Extra Digital Well-Being Tips</h2>
+
+<button type="button" onclick="toggleTips()">
+Show / Hide Additional Tips
+</button>
+
+<div id="extraTips" style="display:none; margin-top:20px;">
+
+<ul>
+<li>Take a 5-minute break every 30 minutes.</li>
+<li>Keep your devices outside the bedroom at night.</li>
+<li>Use blue-light filters after sunset.</li>
+<li>Limit social media notifications.</li>
+<li>Schedule one screen-free day per week.</li>
+</ul>
+
+</div>
+
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+<p>© 2026 Digital Health Awareness System | Resources Module</p>
+</footer>
+
+</body>
+</html>

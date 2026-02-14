@@ -47,9 +47,27 @@ body{
   font-weight:600;
   color:#1e293b;
   position:relative;
+  transition:0.3s;
 }
 
-.navbar a:hover{ color:#2563eb; }
+.navbar a::after{
+  content:"";
+  position:absolute;
+  width:0%;
+  height:2px;
+  left:0;
+  bottom:-5px;
+  background:#2563eb;
+  transition:0.3s;
+}
+
+.navbar a:hover{
+  color:#2563eb;
+}
+
+.navbar a:hover::after{
+  width:100%;
+}
 
 /* ================= HERO ================= */
 .hero{
@@ -62,14 +80,13 @@ body{
   background:linear-gradient(120deg,rgba(255,255,255,.8),rgba(255,255,255,.35));
 }
 
-.hero-text{
-  max-width:560px;
-}
+.hero-text{ max-width:560px; }
 
 .tagline{
   font-size:12px;
   letter-spacing:4px;
   color:#6366f1;
+  font-weight:600;
 }
 
 .hero-text h2{
@@ -101,14 +118,19 @@ body{
   width:80%;
   margin:100px auto;
   padding:65px;
-  background:rgba(255,255,255,0.85);
+  background:rgba(255,255,255,0.88);
   border-radius:32px;
   box-shadow:0 35px 80px rgba(0,0,0,.12);
+  transition:0.4s;
+}
+
+.screen-box:hover{
+  box-shadow:0 40px 100px rgba(0,0,0,.18);
 }
 
 .screen-box h2{
   font-size:30px;
-  margin-bottom:10px;
+  margin-bottom:12px;
   background:linear-gradient(90deg,#2563eb,#9333ea);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -119,7 +141,7 @@ body{
   margin-bottom:14px;
 }
 
-/* ================= ANALYZER ================= */
+/* ================= INPUT ================= */
 input[type=number]{
   width:100%;
   padding:14px;
@@ -127,8 +149,16 @@ input[type=number]{
   border:1px solid #c7d2fe;
   margin:12px 0;
   font-size:16px;
+  transition:0.3s;
 }
 
+input[type=number]:focus{
+  outline:none;
+  border-color:#6366f1;
+  box-shadow:0 0 0 4px rgba(99,102,241,0.15);
+}
+
+/* ================= BUTTON GROUP ================= */
 button{
   padding:12px 30px;
   border-radius:30px;
@@ -138,6 +168,7 @@ button{
   font-weight:bold;
   cursor:pointer;
   transition:.4s;
+  margin-right:10px;
 }
 
 button:hover{
@@ -145,50 +176,53 @@ button:hover{
   box-shadow:0 15px 35px rgba(147,51,234,.4);
 }
 
+/* ================= RESULT BOX ================= */
 .result-box{
-  margin-top:18px;
-  padding:16px;
-  border-radius:15px;
-  background:#eef2ff;
+  margin-top:22px;
+  padding:20px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#eef2ff,#fdf4ff);
   font-weight:600;
   display:none;
+  animation:fadeIn .6s ease;
+  border-left:6px solid #6366f1;
 }
 
-/* ================= GRID ================= */
-.tool-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-  margin-top:25px;
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
-.tool-card{
-  padding:26px;
-  background:linear-gradient(135deg,#e0f2fe,#ede9fe);
-  border-radius:22px;
-  text-align:center;
-  transition:.4s;
+/* ================= PROGRESS BAR ================= */
+progress{
+  width:100%;
+  height:20px;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:20px;
 }
 
-.tool-card:hover{
-  transform:translateY(-10px) scale(1.04);
-  box-shadow:0 18px 40px rgba(99,102,241,.3);
+progress::-webkit-progress-bar{
+  background:#e2e8f0;
+  border-radius:20px;
 }
 
-.tool-card h4{
-  margin-bottom:8px;
-  font-size:18px;
+progress::-webkit-progress-value{
+  background:linear-gradient(90deg,#2563eb,#9333ea);
+  border-radius:20px;
 }
 
-/* ================= ACTION PLAN ================= */
+/* ================= LIST STYLING ================= */
 .screen-box ul{
-  margin-top:10px;
-  padding-left:20px;
+  margin-top:12px;
+  padding-left:22px;
 }
 
 .screen-box li{
   margin:10px 0;
   font-size:15px;
+  position:relative;
+  padding-left:8px;
 }
 
 /* ================= FOOTER ================= */
@@ -203,7 +237,10 @@ button:hover{
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:900px){
-  .navbar{ padding:14px 30px; }
+
+  .navbar{
+    padding:14px 30px;
+  }
 
   .hero{
     flex-direction:column;
@@ -214,5 +251,9 @@ button:hover{
   .screen-box{
     width:90%;
     padding:45px 28px;
+  }
+
+  .hero-text h2{
+    font-size:36px;
   }
 }
