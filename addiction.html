@@ -1,190 +1,178 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<title>Cyber Addiction Awareness | Digital Health Awareness</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" href="addiction.css"/>
+<meta charset="UTF-8">
+<title>Cyber Addiction | Digital Health Awareness</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="text/javascript">
-
-function calculateAddiction(){
-
-  let questions = document.querySelectorAll(".question");
-  let totalScore = 0;
-  let answered = 0;
-
-  questions.forEach((q)=>{
-    let selected = q.querySelector("input[type=radio]:checked");
-    if(selected){
-      totalScore += parseInt(selected.value);
-      answered++;
-    }
-  });
-
-  if(answered < questions.length){
-    alert("Please answer all questions before generating report.");
-    return;
-  }
-
-  let result = document.getElementById("addictionResult");
-  let meter = document.getElementById("riskMeter");
-  let coping = document.getElementById("dynamicPlan");
-
-  let level = "";
-  let advice = "";
-
-  if(totalScore <= 7){
-    level = "🟢 LOW RISK";
-    advice = "You maintain good control over your digital habits. Continue balanced usage.";
-    meter.value = 30;
-  }
-  else if(totalScore <= 11){
-    level = "🟡 MODERATE RISK";
-    advice = "Early signs of digital dependency detected. Reduce unnecessary screen exposure.";
-    meter.value = 65;
-  }
-  else{
-    level = "🔴 HIGH RISK";
-    advice = "Strong cyber addiction indicators detected. Structured digital detox and expert consultation recommended.";
-    meter.value = 90;
-  }
-
-  result.innerHTML = `
-    <h3>Your Addiction Analysis Report</h3>
-    <p><b>Total Score:</b> ${totalScore}</p>
-    <p><b>Risk Level:</b> ${level}</p>
-    <p><b>Expert Suggestion:</b> ${advice}</p>
-  `;
-
-  coping.innerHTML = `
-    <h4>Personalized Recovery Plan</h4>
-    <ul>
-      <li>Follow fixed daily screen schedules</li>
-      <li>Disable non-essential notifications</li>
-      <li>Practice 1-hour daily digital detox</li>
-      <li>Engage in physical exercise</li>
-      <li>Limit social media usage</li>
-      <li>Consult digital health expert if symptoms persist</li>
-    </ul>
-  `;
-
-  result.style.display = "block";
-  coping.style.display = "block";
-  document.getElementById("meterSection").style.display = "block";
-}
-
-</script>
+<link rel="stylesheet" href="addiction.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+<!-- ================= NAVBAR ================= -->
 <header class="navbar">
-<h1 class="logo">Digital Health Awareness</h1>
-<nav>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="screen.html">Screen Time</a></li>
-<li><a href="safety.html">Social Safety</a></li>
-<li><a href="self-assessment.html">Self Assessment</a></li>
-<li><a href="doctor.html">Contact Doctor</a></li>
-</ul>
-</nav>
+  <div class="logo">Digital Health Awareness</div>
 </header>
 
-<!-- ===== HERO ===== -->
+<!-- ================= HERO ================= -->
 <section class="hero">
-<div class="hero-text">
-<span class="tagline">CYBER ADDICTION DETECTION SYSTEM</span>
-<h2>Interactive Cyber Addiction Risk Evaluation</h2>
-<p>
-This module evaluates behavioral indicators of cyber addiction and provides
-personalized digital recovery recommendations.
-</p>
+  <div class="hero-text">
+    <h1>Cyber Addiction Awareness</h1>
+    <p>Understand behavioral patterns, risks, and recovery solutions for healthy digital living.</p>
+  </div>
+
+  <div class="hero-img">
+    <img src="assets/images/hero1.png" alt="Cyber Addiction">
+  </div>
+</section>
+
+<!-- ================= TEST SECTION ================= -->
+<section class="container">
+
+<h2>Cyber Addiction Self Assessment</h2>
+
+<div class="live-score">
+  Live Score: <span id="liveScore">0</span>
 </div>
 
-<div class="hero-img">
-<img src="assets/images/cyber-addiction.png" alt="Cyber Addiction"/>
+<div class="progress-container">
+  <div id="progressBar" class="progress-bar"></div>
+</div>
+
+<div id="severityBadge" class="badge"></div>
+
+<!-- QUESTIONS -->
+
+<div class="question">
+<p>1. I lose track of time online.</p>
+<label><input type="radio" name="q1" value="3" onchange="updateLive()"> Often</label>
+<label><input type="radio" name="q1" value="2" onchange="updateLive()"> Sometimes</label>
+<label><input type="radio" name="q1" value="1" onchange="updateLive()"> Rarely</label>
+</div>
+
+<div class="question">
+<p>2. I feel anxious without internet.</p>
+<label><input type="radio" name="q2" value="3" onchange="updateLive()"> Often</label>
+<label><input type="radio" name="q2" value="2" onchange="updateLive()"> Sometimes</label>
+<label><input type="radio" name="q2" value="1" onchange="updateLive()"> Rarely</label>
+</div>
+
+<div class="question">
+<p>3. Screen use affects sleep.</p>
+<label><input type="radio" name="q3" value="3" onchange="updateLive()"> Often</label>
+<label><input type="radio" name="q3" value="2" onchange="updateLive()"> Sometimes</label>
+<label><input type="radio" name="q3" value="1" onchange="updateLive()"> Rarely</label>
+</div>
+
+<div class="question">
+<p>4. I check phone immediately after waking.</p>
+<label><input type="radio" name="q4" value="3" onchange="updateLive()"> Always</label>
+<label><input type="radio" name="q4" value="2" onchange="updateLive()"> Sometimes</label>
+<label><input type="radio" name="q4" value="1" onchange="updateLive()"> Never</label>
+</div>
+
+<div class="question">
+<p>5. I neglect responsibilities due to screen time.</p>
+<label><input type="radio" name="q5" value="3" onchange="updateLive()"> Often</label>
+<label><input type="radio" name="q5" value="2" onchange="updateLive()"> Sometimes</label>
+<label><input type="radio" name="q5" value="1" onchange="updateLive()"> Rarely</label>
+</div>
+
+<div class="button-group">
+<button onclick="generateReport()">Generate Report</button>
+<button onclick="resetTest()">Reset</button>
+<button onclick="downloadReport()">Download Report</button>
+</div>
+
+<div class="circle-wrapper">
+<svg width="160" height="160">
+<circle cx="80" cy="80" r="70" stroke="#eee" stroke-width="15" fill="none"/>
+<circle id="riskCircle"
+cx="80" cy="80" r="70"
+stroke="#9333ea"
+stroke-width="15"
+fill="none"
+stroke-dasharray="440"
+stroke-dashoffset="440"
+stroke-linecap="round"
+transform="rotate(-90 80 80)"/>
+</svg>
+</div>
+
+<div id="resultBox" class="result"></div>
+
+</section>
+
+<!-- ================= TYPES SECTION ================= -->
+<section class="edu-section">
+<h2>Types of Internet Addiction</h2>
+
+<div class="edu-grid">
+
+<div class="edu-card">
+<img src="assets/images/social-media.png" alt="">
+<h4>Social Media Addiction</h4>
+<p>Compulsive scrolling and validation seeking behavior.</p>
+</div>
+
+<div class="edu-card">
+<img src="assets/images/gaming.png" alt="">
+<h4>Gaming Addiction</h4>
+<p>Excessive gaming affecting sleep and responsibilities.</p>
+</div>
+
+<div class="edu-card">
+<img src="assets/images/shopping.png" alt="">
+<h4>Online Shopping</h4>
+<p>Impulse buying and compulsive spending habits.</p>
+</div>
+
+<div class="edu-card">
+<img src="assets/images/relationship.png" alt="">
+<h4>Online Relationship Dependency</h4>
+<p>Emotional reliance on digital interactions.</p>
+</div>
+
 </div>
 </section>
 
-<!-- ===== EDUCATION SECTION ===== -->
-<section class="screen-box">
-<h2>📘 What is Cyber Addiction?</h2>
-<p>
-Cyber addiction is a behavioral condition characterized by excessive use of digital devices,
-leading to psychological, emotional, and productivity-related consequences.
-</p>
-
+<!-- ================= SYMPTOMS ================= -->
+<section class="info-section">
+<h2>Signs & Symptoms</h2>
+<img src="assets/images/symptoms.jpg" class="full-img" alt="">
 <ul>
-<li>Loss of time awareness</li>
-<li>Withdrawal symptoms without internet</li>
-<li>Reduced academic/work performance</li>
-<li>Sleep cycle disruption</li>
-<li>Mood instability linked to online feedback</li>
+<li>Preoccupation with online activities</li>
+<li>Withdrawal when offline</li>
+<li>Sleep disruption</li>
+<li>Reduced productivity</li>
+<li>Mood swings linked to screen use</li>
 </ul>
 </section>
 
-<!-- ===== SELF TEST SECTION ===== -->
-<section class="screen-box">
-
-<h2>🧪 Cyber Addiction Self-Evaluation Test</h2>
-<p>Select the most appropriate answer for each question.</p>
-
-<div class="question">
-<p><strong>1. I lose track of time while online.</strong></p>
-<label><input type="radio" name="q1" value="3"/> Often</label>
-<label><input type="radio" name="q1" value="2"/> Sometimes</label>
-<label><input type="radio" name="q1" value="1"/> Rarely</label>
-</div>
-
-<div class="question">
-<p><strong>2. I feel restless without internet access.</strong></p>
-<label><input type="radio" name="q2" value="3"/> Often</label>
-<label><input type="radio" name="q2" value="2"/> Sometimes</label>
-<label><input type="radio" name="q2" value="1"/> Rarely</label>
-</div>
-
-<div class="question">
-<p><strong>3. I neglect responsibilities due to online use.</strong></p>
-<label><input type="radio" name="q3" value="3"/> Often</label>
-<label><input type="radio" name="q3" value="2"/> Sometimes</label>
-<label><input type="radio" name="q3" value="1"/> Rarely</label>
-</div>
-
-<div class="question">
-<p><strong>4. I check my phone immediately after waking up.</strong></p>
-<label><input type="radio" name="q4" value="3"/> Always</label>
-<label><input type="radio" name="q4" value="2"/> Sometimes</label>
-<label><input type="radio" name="q4" value="1"/> Never</label>
-</div>
-
-<div class="question">
-<p><strong>5. My screen usage affects my sleep.</strong></p>
-<label><input type="radio" name="q5" value="3"/> Often</label>
-<label><input type="radio" name="q5" value="2"/> Sometimes</label>
-<label><input type="radio" name="q5" value="1"/> Never</label>
-</div>
-
-<br/>
-<button onclick="calculateAddiction()">Generate Addiction Report</button>
-
-<div id="addictionResult" class="result-box"></div>
-
+<!-- ================= TREATMENT ================= -->
+<section class="info-section">
+<h2>Treatment & Recovery</h2>
+<img src="assets/images/therapy.jpg" class="full-img" alt="">
+<p>
+Recovery strategies include cognitive behavioral therapy, digital detox planning,
+structured screen limits, and professional counseling support.
+</p>
 </section>
 
-<!-- ===== RISK METER ===== -->
-<section id="meterSection" class="screen-box" style="display:none;">
-<h2>📊 Addiction Severity Indicator</h2>
-<progress id="riskMeter" value="0" max="100"></progress>
+<!-- ================= CTA ================= -->
+<section class="cta-section">
+<h2>Need Professional Support?</h2>
+<p>Consult a mental health specialist for structured recovery guidance.</p>
+<a href="doctor.html" class="cta-btn">Contact Specialist</a>
 </section>
-
-<!-- ===== DYNAMIC RECOVERY PLAN ===== -->
-<section id="dynamicPlan" class="screen-box" style="display:none;"></section>
 
 <footer class="footer">
-<p>© 2026 Digital Health Awareness System | Cyber Addiction Module</p>
+© 2026 Digital Health Awareness System
 </footer>
+
+<script src="addiction.js"></script>
 
 </body>
 </html>

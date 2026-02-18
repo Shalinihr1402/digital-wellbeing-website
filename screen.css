@@ -23,9 +23,9 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(241,245,249,0.92);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(99,102,241,0.25);
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(99,102,241,0.2);
 }
 
 .logo{
@@ -57,7 +57,7 @@ body{
   height:2px;
   left:0;
   bottom:-5px;
-  background:#2563eb;
+  background:linear-gradient(90deg,#2563eb,#9333ea);
   transition:0.3s;
 }
 
@@ -77,7 +77,7 @@ body{
   justify-content:space-between;
   align-items:center;
   gap:60px;
-  background:linear-gradient(120deg,rgba(255,255,255,.8),rgba(255,255,255,.35));
+  background:linear-gradient(120deg,rgba(255,255,255,.85),rgba(255,255,255,.4));
 }
 
 .hero-text{ max-width:560px; }
@@ -103,29 +103,52 @@ body{
   color:#334155;
 }
 
+/* Floating Image */
 .hero-img img{
   width:420px;
   max-width:100%;
-  transition:.5s ease;
+  border-radius:25px;
+  box-shadow:0 25px 60px rgba(0,0,0,.15);
+  animation:float 4s ease-in-out infinite;
 }
 
-.hero-img img:hover{
-  transform:translateY(-12px) scale(1.05);
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+  100%{transform:translateY(0);}
 }
 
-/* ================= MODULE BOX ================= */
+/* ================= COLORFUL CARDS ================= */
 .screen-box{
   width:80%;
   margin:100px auto;
   padding:65px;
-  background:rgba(255,255,255,0.88);
   border-radius:32px;
-  box-shadow:0 35px 80px rgba(0,0,0,.12);
-  transition:0.4s;
+
+  /* COLORFUL GRADIENT BACKGROUND */
+  background:linear-gradient(135deg,#eef2ff,#f3e8ff,#fdf2f8);
+
+  box-shadow:0 35px 80px rgba(99,102,241,.25);
+  transition:0.4s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Soft Glow Effect */
+.screen-box::before{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  background:radial-gradient(circle,rgba(147,51,234,0.25),transparent 70%);
+  top:-100px;
+  right:-100px;
+  border-radius:50%;
 }
 
 .screen-box:hover{
-  box-shadow:0 40px 100px rgba(0,0,0,.18);
+  transform:translateY(-8px);
+  box-shadow:0 45px 110px rgba(147,51,234,.35);
 }
 
 .screen-box h2{
@@ -155,15 +178,16 @@ input[type=number]{
 input[type=number]:focus{
   outline:none;
   border-color:#6366f1;
-  box-shadow:0 0 0 4px rgba(99,102,241,0.15);
+  box-shadow:0 0 0 4px rgba(99,102,241,0.2);
 }
 
-/* ================= BUTTON GROUP ================= */
+/* ================= BUTTON ================= */
 button{
   padding:12px 30px;
   border-radius:30px;
   border:none;
-  background:linear-gradient(90deg,#2563eb,#9333ea);
+  background:linear-gradient(90deg,#2563eb,#9333ea,#ec4899);
+  background-size:200% auto;
   color:white;
   font-weight:bold;
   cursor:pointer;
@@ -172,6 +196,7 @@ button{
 }
 
 button:hover{
+  background-position:right center;
   transform:translateY(-4px);
   box-shadow:0 15px 35px rgba(147,51,234,.4);
 }
@@ -179,9 +204,9 @@ button:hover{
 /* ================= RESULT BOX ================= */
 .result-box{
   margin-top:22px;
-  padding:20px;
-  border-radius:18px;
-  background:linear-gradient(135deg,#eef2ff,#fdf4ff);
+  padding:24px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#ffffff,#f3f4f6);
   font-weight:600;
   display:none;
   animation:fadeIn .6s ease;
@@ -196,7 +221,7 @@ button:hover{
 /* ================= PROGRESS BAR ================= */
 progress{
   width:100%;
-  height:20px;
+  height:22px;
   border-radius:20px;
   overflow:hidden;
   margin-top:20px;
@@ -208,11 +233,11 @@ progress::-webkit-progress-bar{
 }
 
 progress::-webkit-progress-value{
-  background:linear-gradient(90deg,#2563eb,#9333ea);
+  background:linear-gradient(90deg,#22c55e,#facc15,#ef4444);
   border-radius:20px;
 }
 
-/* ================= LIST STYLING ================= */
+/* ================= LIST ================= */
 .screen-box ul{
   margin-top:12px;
   padding-left:22px;
@@ -221,8 +246,6 @@ progress::-webkit-progress-value{
 .screen-box li{
   margin:10px 0;
   font-size:15px;
-  position:relative;
-  padding-left:8px;
 }
 
 /* ================= FOOTER ================= */

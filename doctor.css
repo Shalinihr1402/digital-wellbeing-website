@@ -10,6 +10,7 @@ body{
   background:linear-gradient(135deg,#e0f2fe,#fce7f3,#ede9fe,#dcfce7);
   color:#1e293b;
   line-height:1.6;
+  overflow-x:hidden;
 }
 
 /* ================= NAVBAR ================= */
@@ -21,9 +22,10 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(241,245,249,0.92);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(99,102,241,0.25);
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(99,102,241,0.2);
+  box-shadow:0 8px 25px rgba(0,0,0,0.05);
 }
 
 .logo{
@@ -44,9 +46,28 @@ body{
   text-decoration:none;
   font-weight:600;
   color:#1e293b;
+  position:relative;
+  transition:0.3s;
 }
 
-.navbar a:hover{ color:#2563eb; }
+.navbar a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:linear-gradient(90deg,#2563eb,#9333ea);
+  transition:0.3s;
+}
+
+.navbar a:hover{
+  color:#2563eb;
+}
+
+.navbar a:hover::after{
+  width:100%;
+}
 
 /* ================= HERO ================= */
 .hero{
@@ -65,6 +86,7 @@ body{
   font-size:12px;
   letter-spacing:4px;
   color:#6366f1;
+  font-weight:600;
 }
 
 .hero-text h2{
@@ -81,14 +103,20 @@ body{
   color:#334155;
 }
 
+/* Floating Animation */
 .hero-img img{
   width:420px;
   max-width:100%;
+  border-radius:25px;
+  box-shadow:0 25px 60px rgba(0,0,0,.15);
+  animation:float 4s ease-in-out infinite;
   transition:.5s ease;
 }
 
-.hero-img img:hover{
-  transform:translateY(-10px) scale(1.05);
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+  100%{transform:translateY(0);}
 }
 
 /* ================= SECTION BOX ================= */
@@ -96,9 +124,32 @@ body{
   width:80%;
   margin:100px auto;
   padding:65px;
-  background:rgba(255,255,255,0.9);
   border-radius:32px;
-  box-shadow:0 35px 80px rgba(0,0,0,.12);
+
+  /* COLORFUL GLASS CARD */
+  background:linear-gradient(135deg,#eef2ff,#fdf2f8,#f3e8ff);
+  box-shadow:0 35px 80px rgba(99,102,241,.25);
+
+  position:relative;
+  overflow:hidden;
+  transition:0.4s ease;
+}
+
+/* Glow Circle */
+.screen-box::before{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  background:radial-gradient(circle,rgba(147,51,234,0.25),transparent 70%);
+  top:-100px;
+  right:-100px;
+  border-radius:50%;
+}
+
+.screen-box:hover{
+  transform:translateY(-8px);
+  box-shadow:0 45px 110px rgba(147,51,234,.35);
 }
 
 .screen-box h2{
@@ -131,16 +182,25 @@ input, select, textarea{
   border:1px solid #c7d2fe;
   margin-top:8px;
   font-size:15px;
+  transition:0.3s;
+}
+
+input:focus, textarea:focus{
+  outline:none;
+  border-color:#6366f1;
+  box-shadow:0 0 0 4px rgba(99,102,241,0.2);
 }
 
 textarea{ resize:none; }
 
+/* ================= BUTTON ================= */
 button{
   margin-top:16px;
   padding:12px 34px;
   border-radius:30px;
   border:none;
-  background:linear-gradient(90deg,#2563eb,#9333ea);
+  background:linear-gradient(90deg,#2563eb,#9333ea,#ec4899);
+  background-size:200% auto;
   color:white;
   font-weight:bold;
   cursor:pointer;
@@ -148,6 +208,7 @@ button{
 }
 
 button:hover{
+  background-position:right center;
   transform:translateY(-4px);
   box-shadow:0 15px 35px rgba(147,51,234,.4);
 }
@@ -155,12 +216,13 @@ button:hover{
 /* ================= RESULT ================= */
 .result-box{
   margin-top:20px;
-  padding:18px;
-  border-radius:16px;
-  background:#eef2ff;
+  padding:20px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#ffffff,#f3f4f6);
   font-weight:700;
   display:none;
   animation:fadeIn .6s ease;
+  border-left:6px solid #6366f1;
 }
 
 @keyframes fadeIn{
@@ -180,6 +242,7 @@ button:hover{
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:900px){
+
   .navbar{ padding:14px 30px; }
 
   .hero{
@@ -191,5 +254,9 @@ button:hover{
   .screen-box{
     width:90%;
     padding:45px 28px;
+  }
+
+  .hero-text h2{
+    font-size:36px;
   }
 }

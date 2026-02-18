@@ -1,33 +1,21 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>Digital Health Awareness System</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="index.css" />
-
-<script type="text/javascript">
-function toggleTips(){
-  var tips = document.getElementById("extraTips");
-
-  if(tips.style.display === "none"){
-    tips.style.display = "block";
-  } else {
-    tips.style.display = "none";
-  }
-}
-</script>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="index.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR -->
 <header class="navbar">
   <h1 class="logo">Digital Health Awareness System</h1>
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Home</a></li>
       <li><a href="screen.html">Screen Time</a></li>
       <li><a href="addiction.html">Cyber Addiction</a></li>
       <li><a href="safety.html">Social Safety</a></li>
@@ -38,162 +26,120 @@ function toggleTips(){
   </nav>
 </header>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-text">
     <span class="tagline">DIGITAL HEALTH • AWARENESS • WELL-BEING</span>
     <h2>Empowering Healthy Digital Living</h2>
     <p>
-      A standards-compliant educational web application designed to promote
-      healthy digital habits, prevent cyber addiction, and ensure safe
-      social media practices.
+      Educational platform promoting healthy digital habits,
+      preventing cyber addiction, and ensuring safe online behavior.
     </p>
-    <a href="self-assessment.html" class="hero-btn">
-      Start Self-Assessment
-    </a>
+    <a href="#" class="hero-btn">Start Self-Assessment</a>
   </div>
 
   <div class="hero-img">
-    <img src="assets/images/hero.png" alt="Digital Health Awareness" />
+    <img src="assets/images/hero.png" alt="Digital Health">
   </div>
 </section>
 
-<!-- ================= ABOUT ================= -->
+<!-- ABOUT -->
 <section class="info-section">
-  <div class="info-text">
-    <h3>About This Project</h3>
-    <p>
-      This website is developed using XHTML-compliant structure,
-      JavaScript interactivity, HTTP standards, and responsive CSS Flexbox design.
-      It ensures secure content delivery and consistent cross-browser behavior.
-    </p>
+  <div class="info-content">
+    <div class="info-text">
+      <h3>About This Project</h3>
+      <p>
+        Built using XHTML, JavaScript, HTTP standards,
+        and responsive CSS design ensuring cross-browser compatibility.
+      </p>
+      <ul>
+        <li>Structured educational modules</li>
+        <li>Interactive digital health tests</li>
+        <li>Secure consultation form</li>
+        <li>Downloadable wellness resources</li>
+        <li>Responsive layout</li>
+      </ul>
+    </div>
 
-    <ul>
-      <li>Structured educational modules</li>
-      <li>Interactive digital health tests</li>
-      <li>Secure consultation form (POST method)</li>
-      <li>Downloadable wellness resources</li>
-      <li>Responsive multi-device layout</li>
-    </ul>
+    <div class="info-image">
+      <img src="assets/images/about.png" alt="About Project">
+    </div>
   </div>
 </section>
 
-<!-- ================= WHY IMPORTANT ================= -->
+<!-- WHY -->
 <section class="info-section">
-  <div class="info-text">
-    <h3>Why Digital Well-Being Matters?</h3>
-    <p>
-      Excessive screen exposure impacts mental health, sleep cycles,
-      concentration, and productivity. This system provides
-      structured guidance for balanced digital behavior.
-    </p>
+  <div class="info-content">
+    <div class="info-text">
+      <h3>Why Digital Well-Being Matters?</h3>
+      <p>
+        Excessive screen time impacts sleep, productivity, and mental health.
+        Our system provides structured digital balance guidance.
+      </p>
+    </div>
+
+    <div class="info-image">
+      <img src="assets/images/why.png" alt="Wellbeing">
+    </div>
   </div>
 </section>
 
-<!-- ================= SHOW / HIDE TIPS ================= -->
-<section class="challenge-section">
-  <h3>Quick Digital Wellness Tips</h3>
-  <button onclick="toggleTips()">Show / Hide Tips</button>
-
-  <div id="extraTips" style="display:none; margin-top:20px;">
-    <ul>
-      <li>Follow 20-20-20 eye rule</li>
-      <li>Avoid screens 1 hour before sleep</li>
-      <li>Limit social media scrolling</li>
-      <li>Turn off non-essential notifications</li>
-      <li>Practice weekly digital detox</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ================= SYSTEM FLOW ================= -->
+<!-- SYSTEM -->
 <section class="info-section">
-  <div class="info-text">
-    <h3>How the System Works</h3>
-    <ul>
-      <li>User enters website</li>
-      <li>Selects awareness module</li>
-      <li>Completes interactive test</li>
-      <li>JavaScript analyzes responses</li>
-      <li>Personalized feedback is displayed</li>
-      <li>User may consult expert via secure form</li>
-    </ul>
+  <div class="info-content">
+    <div class="info-text">
+      <h3>How the System Works</h3>
+      <ul>
+        <li>User enters website</li>
+        <li>Selects awareness module</li>
+        <li>Completes interactive test</li>
+        <li>JavaScript analyzes responses</li>
+        <li>Personalized feedback displayed</li>
+        <li>Consult expert via secure form</li>
+      </ul>
+    </div>
+
+    <div class="info-image">
+      <img src="assets/images/how.png" alt="System Flow">
+    </div>
   </div>
 </section>
 
-<!-- ================= RESOURCES ================= -->
+<!-- RESOURCES -->
 <section class="info-section">
-  <div class="info-text">
-    <h3>Download Wellness Resources</h3>
-    <ul>
-      <li>
-        <a href="resources/digital-wellness-guide.pdf">
-          Download Digital Wellness Guide (PDF)
-        </a>
-      </li>
-      <li>
-        <a href="resources/screen-time-tips.pdf">
-          Screen Time Management Tips
-        </a>
-      </li>
-      <li>
-        <a href="resources/online-safety-guide.pdf">
-          Online Safety Awareness Guide
-        </a>
-      </li>
-    </ul>
+  <div class="info-content">
+    <div class="info-text">
+      <h3>Download Wellness Resources</h3>
+      <ul>
+        <li>Digital Wellness Guide (PDF)</li>
+        <li>Screen Time Management Tips</li>
+        <li>Online Safety Awareness Guide</li>
+      </ul>
+    </div>
+
+    <div class="info-image">
+      <img src="assets/images/resources.png" alt="Resources">
+    </div>
   </div>
 </section>
+
+<!-- TIPS -->
 <section class="tips-section">
-
   <h2 class="tips-title">Quick Digital Wellness Tips</h2>
 
-  <button onclick="toggleTips()" class="tips-btn">
-    Show / Hide Tips
-  </button>
-
-  <div id="tipsContainer" class="tips-container">
-
-    <div class="tip-card">
-      ⏰ Follow 30-10 rule (30 min work + 10 min break)
-    </div>
-
-    <div class="tip-card">
-      🌙 Avoid screens 1 hour before sleep
-    </div>
-
-    <div class="tip-card">
-      📵 Turn off non-essential notifications
-    </div>
-
-    <div class="tip-card">
-      🧘 Practice daily digital detox
-    </div>
-
-    <div class="tip-card">
-      📊 Track weekly screen usage
-    </div>
-
+  <div class="tips-container">
+    <div class="tip-card">⏰ Follow 30-10 rule</div>
+    <div class="tip-card">🌙 Avoid screens before sleep</div>
+    <div class="tip-card">📵 Turn off notifications</div>
+    <div class="tip-card">🧘 Practice digital detox</div>
+    <div class="tip-card">📊 Track screen usage</div>
   </div>
-
 </section>
-<script>
-function toggleTips(){
-  const tips = document.getElementById("tipsContainer");
 
-  if(tips.style.maxHeight){
-    tips.style.maxHeight = null;
-  } else {
-    tips.style.maxHeight = tips.scrollHeight + "px";
-  }
-}
-</script>
-
-
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 <footer class="footer">
   <p>© 2026 Digital Health Awareness System</p>
-  <p>MCA Web Technology | XHTML | HTTP | JavaScript | CSS Flexbox</p>
+  <p>MCA Web Technology Project</p>
 </footer>
 
 </body>

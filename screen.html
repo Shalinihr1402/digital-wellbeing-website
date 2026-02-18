@@ -5,18 +5,20 @@
 <title>Screen Time Management | Digital Health Awareness</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="screen.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
 
-<script type="text/javascript">
+<script>
 
 function analyzeScreen(){
 
-  let hrs = document.getElementById("hours").value;
+  let hrs = parseFloat(document.getElementById("hours").value);
   let result = document.getElementById("screenResult");
   let meter = document.getElementById("riskMeter");
   let plan = document.getElementById("dynamicPlan");
+  let weekly = document.getElementById("weeklyReport");
 
-  if(hrs === "" || hrs < 0){
-    alert("Please enter valid daily screen hours.");
+  if(isNaN(hrs) || hrs < 0 || hrs > 24){
+    alert("Please enter valid screen hours (0–24).");
     return;
   }
 
@@ -25,42 +27,55 @@ function analyzeScreen(){
 
   let level = "";
   let advice = "";
+  let color = "";
 
   if(hrs <= 4){
     level = "🟢 Healthy Usage";
-    advice = "Excellent balance between online and offline activities.";
+    advice = "Great balance! Keep maintaining healthy habits.";
+    color = "#22c55e";
   }
   else if(hrs <= 7){
     level = "🟡 Moderate Usage";
-    advice = "Consider reducing unnecessary screen exposure.";
+    advice = "Try reducing unnecessary screen exposure.";
+    color = "#facc15";
   }
   else{
     level = "🔴 High Risk Usage";
-    advice = "Immediate digital detox recommended.";
+    advice = "Digital detox strongly recommended.";
+    color = "#ef4444";
   }
 
   result.innerHTML = `
     <h3>Your Screen Time Report</h3>
     <p><b>Daily Hours:</b> ${hrs} hrs</p>
-    <p><b>Risk Level:</b> ${level}</p>
+    <p><b>Weekly Usage:</b> ${(hrs*7).toFixed(1)} hrs</p>
+    <p style="color:${color}; font-weight:bold;">
+      <b>Risk Level:</b> ${level}
+    </p>
     <p><b>Expert Advice:</b> ${advice}</p>
   `;
 
+  weekly.innerHTML = `
+    <h4>📅 Weekly Insight</h4>
+    <p>You spend approximately <b>${(hrs*7).toFixed(1)} hours per week</b> on screens.</p>
+  `;
+
   plan.innerHTML = `
-    <h4>Recommended Smart Action Plan</h4>
+    <h4>📌 Smart Action Plan</h4>
     <ul>
-      <li>Follow 20-20-20 eye rule (every 20 mins, look 20 feet away)</li>
+      <li>Follow 20-20-20 eye rule</li>
       <li>Schedule fixed screen-free hours</li>
       <li>Enable app usage limits</li>
       <li>Turn off unnecessary notifications</li>
-      <li>Avoid devices 1 hour before sleep</li>
-      <li>Replace digital time with physical activity</li>
+      <li>Avoid devices before sleep</li>
+      <li>Replace screen time with exercise</li>
     </ul>
   `;
 
   document.getElementById("meterSection").style.display = "block";
   result.style.display = "block";
   plan.style.display = "block";
+  weekly.style.display = "block";
 }
 
 function resetScreen(){
@@ -68,6 +83,7 @@ function resetScreen(){
   document.getElementById("screenResult").style.display = "none";
   document.getElementById("dynamicPlan").style.display = "none";
   document.getElementById("meterSection").style.display = "none";
+  document.getElementById("weeklyReport").style.display = "none";
 }
 
 </script>
@@ -88,58 +104,39 @@ function resetScreen(){
 </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
 <div class="hero-text">
 <span class="tagline">SCREEN TIME ANALYSIS SYSTEM</span>
 <h2>Interactive Digital Exposure Evaluation</h2>
-<p>
-Evaluate your daily screen exposure and receive a personalized
-digital wellness recommendation.
-</p>
+<p>Evaluate your daily screen exposure and receive personalized wellness guidance.</p>
 </div>
 
 <div class="hero-img">
-<img src="assets/images/screen-time.png" alt="Screen Time Management"/>
+<img src="assets/images/screen-time.png" alt="Screen Time"/>
 </div>
 </section>
 
-<!-- ANALYZER -->
 <section class="screen-box">
 <h2>📊 Screen Time Risk Analyzer</h2>
-<p>Enter your average daily screen hours:</p>
-
-<input type="number" id="hours" placeholder="Example: 6" min="0" max="24"/>
-
+<input type="number" id="hours" placeholder="Enter hours (0-24)" min="0" max="24"/>
 <br/><br/>
-<button onclick="analyzeScreen()">Generate Screen Report</button>
+<button onclick="analyzeScreen()">Generate Report</button>
 <button onclick="resetScreen()">Reset</button>
 
-<div id="screenResult" class="result-box"></div>
+<div id="screenResult" class="result-box" style="display:none;"></div>
 </section>
 
-<!-- RISK METER -->
 <section id="meterSection" class="screen-box" style="display:none;">
 <h2>📈 Digital Risk Indicator</h2>
 <progress id="riskMeter" value="0" max="100"></progress>
 </section>
 
-<!-- DYNAMIC PLAN -->
+<section id="weeklyReport" class="screen-box" style="display:none;"></section>
+
 <section id="dynamicPlan" class="screen-box" style="display:none;"></section>
 
-<!-- EDUCATIONAL SECTION -->
-<section class="screen-box">
-<h2>🧠 Health Impact Areas</h2>
-<ul>
-<li>👁 Vision health & eye strain</li>
-<li>😴 Sleep cycle disruption</li>
-<li>🎯 Reduced productivity</li>
-<li>❤️ Increased stress & anxiety</li>
-</ul>
-</section>
-
 <footer class="footer">
-<p>© 2026 Digital Health Awareness System | Screen Time Module</p>
+<p>© 2026 Digital Health Awareness System</p>
 </footer>
 
 </body>
