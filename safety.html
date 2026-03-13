@@ -1,195 +1,25 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en'>
 <head>
-<meta charset="UTF-8"/>
-<title>Social Media Safety | Digital Health Awareness</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" href="safety.css"/>
-
-<script type="text/javascript">
-
-function checkSafety(){
-
-  let checkboxes = document.querySelectorAll(".safe-check");
-  let checked = document.querySelectorAll(".safe-check:checked");
-
-  if(checked.length === 0){
-    alert("Please select at least one practice.");
-    return;
-  }
-
-  let total = checkboxes.length;
-  let score = checked.length;
-  let percentage = Math.round((score/total)*100);
-
-  let result = document.getElementById("safetyResult");
-  let meter = document.getElementById("safetyMeter");
-
-  let status = "";
-  let advice = "";
-
-  if(percentage <= 40){
-    status = "🔴 HIGH RISK";
-    advice = "Your safety practices are weak. Immediate improvement recommended.";
-  }
-  else if(percentage <= 70){
-    status = "🟡 MODERATE SAFETY";
-    advice = "You follow some good practices. Strengthen privacy and awareness.";
-  }
-  else{
-    status = "🟢 GOOD SAFETY LEVEL";
-    advice = "Excellent! You maintain strong social media safety habits.";
-  }
-
-  result.innerHTML = `
-    <h3>Your Safety Report</h3>
-    <p><b>Safety Score:</b> ${percentage}%</p>
-    <p><b>Status:</b> ${status}</p>
-    <p><b>Recommendation:</b> ${advice}</p>
-  `;
-
-  meter.value = percentage;
-
-  result.style.display = "block";
-  document.getElementById("meterSection").style.display = "block";
-}
-
-
-function checkScam(){
-
-  let answer = document.querySelector('input[name="scam"]:checked');
-  let res = document.getElementById("scamResult");
-
-  if(!answer){
-    alert("Please select an option.");
-    return;
-  }
-
-  if(answer.value === "correct"){
-    res.innerHTML = `
-      <h3>✅ Correct Decision!</h3>
-      <p>Never click unknown links. Report and block suspicious messages.</p>
-    `;
-  } 
-  else{
-    res.innerHTML = `
-      <h3>❌ Incorrect Choice</h3>
-      <p>Scammers use fake rewards to steal personal information.</p>
-    `;
-  }
-
-  res.style.display = "block";
-}
-
-function resetSafety(){
-  document.querySelectorAll("input").forEach(input => input.checked = false);
-  document.getElementById("safetyResult").style.display = "none";
-  document.getElementById("scamResult").style.display = "none";
-  document.getElementById("meterSection").style.display = "none";
-}
-
+<meta charset='UTF-8' />
+<title>Social Media Safety | Digital Health Awareness System</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<link rel='stylesheet' href='site.css' />
+<link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet' />
+<script type='text/javascript'>
+function evaluateSafety(){var checked=document.querySelectorAll('.safe-check:checked');var total=document.querySelectorAll('.safe-check').length;var meter=document.getElementById('safetyMeter');var result=document.getElementById('safetyResult');if(checked.length===0){alert('Select at least one safety habit to continue.');return false;}var percent=Math.round((checked.length/total)*100);var level=percent>=80?'Strong social media safety':(percent>=50?'Developing safety habits':'High exposure to online risk');meter.value=percent;result.innerHTML='<h3>Your safety result</h3><p><strong>Score:</strong> '+percent+'%</p><p><strong>Status:</strong> '+level+'</p><p><strong>Next step:</strong> Review privacy settings, reporting tools, and phishing awareness.</p>';result.style.display='block';document.getElementById('safetyMeterBox').style.display='block';return false;}
+function checkScam(){var answer=document.querySelector('input[name=scam]:checked');if(!answer){alert('Choose one scam-response option first.');return false;}var box=document.getElementById('scamResult');box.innerHTML=answer.value==='safe'?'<h3>Correct response</h3><p>Ignoring, reporting, and blocking suspicious messages protects your data.</p>':'<h3>Unsafe response</h3><p>Prize links and urgent requests often lead to phishing or malware. Do not click them.</p>';box.style.display='block';return false;}
+function resetSafety(){document.querySelectorAll('.safe-check,input[name=scam]').forEach(function(item){item.checked=false;});document.getElementById('safetyMeter').value=0;document.getElementById('safetyResult').style.display='none';document.getElementById('scamResult').style.display='none';document.getElementById('safetyMeterBox').style.display='none';}
 </script>
 </head>
-
 <body>
-
-<header class="navbar">
-<h1 class="logo">Digital Health Awareness</h1>
-<nav>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="screen.html">Screen Time</a></li>
-<li><a href="addiction.html">Cyber Addiction</a></li>
-<li><a href="self-assessment.html">Self Assessment</a></li>
-<li><a href="doctor.html">Contact Doctor</a></li>
-</ul>
-</nav>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-<div class="hero-text">
-<span class="tagline">SOCIAL MEDIA SECURITY ANALYZER</span>
-<h2>Interactive Social Media Safety Evaluation</h2>
-<p>
-Evaluate your online safety habits and learn how to protect your digital identity.
-</p>
+<div class='page-shell'>
+<header class='navbar'><div class='logo-block'><div class='logo'>Digital Health Awareness System</div><div class='logo-note'>Responsible social media and online safety</div></div><nav><ul class='nav-links'><li><a href='index.html'>Home</a></li><li><a href='screen.html'>Screen Time</a></li><li><a href='addiction.html'>Cyber Addiction</a></li><li><a class='active' href='safety.html'>Social Safety</a></li><li><a href='self-assessment.html'>Self Assessment</a></li><li><a href='doctor.html'>Contact Doctor</a></li><li><a href='resources.html'>Resources</a></li><li><a href='register.html'>Register</a></li><li><a href='login.html'>Login</a></li></ul></nav></header>
+<section class='hero'><div class='hero-copy'><span class='eyebrow'>Social Media Safety</span><h2>Protect your identity, privacy, and emotional well-being online.</h2><p>This module teaches secure social media habits, phishing awareness, privacy protection, and responsible communication.</p></div><div class='hero-visual'><div class='hero-card'><img src='assets/images/social-safety.png' alt='Social media safety' /></div></div></section>
+<section class='section'><div class='split'><div class='panel'><h3>Safety self-check</h3><div class='option-list'><label class='option'><input class='safe-check' type='checkbox' />I use strong and unique passwords</label><label class='option'><input class='safe-check' type='checkbox' />I enable two-factor authentication</label><label class='option'><input class='safe-check' type='checkbox' />I review my privacy settings</label><label class='option'><input class='safe-check' type='checkbox' />I avoid suspicious links and unknown requests</label><label class='option'><input class='safe-check' type='checkbox' />I report harmful or abusive content</label></div><div class='actions'><button type='button' onclick='evaluateSafety()'>Generate Safety Report</button><button type='button' class='ghost-btn' onclick='resetSafety()'>Reset</button></div><div id='safetyResult' class='result-box'></div></div><div class='panel'><h3>Scam awareness test</h3><p>You receive a message saying: You won a prize. Click here immediately to claim it.</p><div class='option-list'><label class='option'><input type='radio' name='scam' value='unsafe' />Click the link quickly</label><label class='option'><input type='radio' name='scam' value='safe' />Ignore, report, and block it</label><label class='option'><input type='radio' name='scam' value='unsafe' />Share it with friends first</label></div><div class='actions'><button type='button' onclick='checkScam()'>Check Answer</button></div><div id='scamResult' class='result-box'></div></div></div></section>
+<section class='section'><div id='safetyMeterBox' class='meter-box'><h3>Safety indicator</h3><progress id='safetyMeter' value='0' max='100'></progress><p class='small'>Higher scores suggest stronger privacy, reporting, and verification habits.</p></div></section>
+<section class='section'><div class='grid'><div class='card'><h3>Golden rules</h3><ul><li>Think before posting personal details.</li><li>Never share passwords, OTPs, or recovery codes.</li><li>Verify information before forwarding it.</li></ul></div><div class='card'><h3>Healthy online behavior</h3><ul><li>Use respectful communication.</li><li>Mute or block harassment quickly.</li><li>Limit comparison-heavy feeds that affect mood.</li></ul></div></div></section>
+<footer class='footer'><p>© 2026 Digital Health Awareness System</p><p>Social Media Safety Module</p></footer>
 </div>
-
-<div class="hero-img">
-<img src="assets/images/social-safety.png" alt="Social Safety"/>
-</div>
-</section>
-
-<!-- IMPORTANCE -->
-<section class="screen-box">
-<h2>🔐 Why Social Media Safety Matters</h2>
-<p>
-Unsafe online behavior can result in identity theft, fraud, cyberbullying,
-privacy breaches, and psychological stress.
-</p>
-<ul>
-<li>Protects personal identity</li>
-<li>Prevents financial fraud</li>
-<li>Reduces cyber harassment</li>
-<li>Enhances responsible communication</li>
-</ul>
-</section>
-
-<!-- SELF CHECK -->
-<section class="screen-box">
-<h2>🧠 Social Media Safety Self-Evaluation</h2>
-<p>Select all safety practices you follow:</p>
-
-<label><input type="checkbox" class="safe-check"/> I use strong passwords</label>
-<label><input type="checkbox" class="safe-check"/> I enable two-factor authentication</label>
-<label><input type="checkbox" class="safe-check"/> My account is private</label>
-<label><input type="checkbox" class="safe-check"/> I avoid unknown friend requests</label>
-<label><input type="checkbox" class="safe-check"/> I report abusive content</label>
-
-<br/><br/>
-<button onclick="checkSafety()">Generate Safety Report</button>
-<button onclick="resetSafety()">Reset</button>
-
-<div id="safetyResult" class="result-box"></div>
-</section>
-
-<!-- SAFETY METER -->
-<section id="meterSection" class="screen-box" style="display:none;">
-<h2>📊 Safety Level Indicator</h2>
-<progress id="safetyMeter" value="0" max="100"></progress>
-</section>
-
-<!-- SCAM TEST -->
-<section class="screen-box">
-<h2>🚨 Scam Awareness Test</h2>
-<p>You receive: “You won ₹50,000! Click link to claim.” What do you do?</p>
-
-<label><input type="radio" name="scam" value="wrong"/> Click immediately</label>
-<label><input type="radio" name="scam" value="correct"/> Ignore & report it</label>
-<label><input type="radio" name="scam" value="wrong"/> Share with friends</label>
-
-<br/><br/>
-<button onclick="checkScam()">Submit Answer</button>
-
-<div id="scamResult" class="result-box"></div>
-</section>
-
-<!-- RULES -->
-<section class="screen-box">
-<h2>📜 Golden Rules of Social Media Safety</h2>
-<ul>
-<li>Think before posting</li>
-<li>Never share OTP or passwords</li>
-<li>Avoid suspicious links</li>
-<li>Verify information before sharing</li>
-<li>Protect your digital identity</li>
-</ul>
-</section>
-
-<footer class="footer">
-<p>© 2026 Digital Health Awareness System | Social Media Safety Module</p>
-</footer>
-
 </body>
 </html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en'>
+<head>
+<meta charset='UTF-8' />
+<title>Login | Digital Health Awareness System</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<link rel='stylesheet' href='site.css' />
+<link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet' />
+<script type='text/javascript'>
+function validateLogin(){var email=document.getElementById('loginEmail');var password=document.getElementById('loginPassword');var pattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;if(!pattern.test(email.value.replace(/^\s+|\s+$/g,''))){alert('Please enter a valid email address.');email.focus();return false;}if(password.value.length<6){alert('Password must be at least 6 characters long.');password.focus();return false;}var result=document.getElementById('loginResult');result.innerHTML='<h3>Login form validated</h3><p>Your credentials are ready to be submitted using HTTP POST with the MIME type <strong>application/x-www-form-urlencoded</strong>.</p>';result.style.display='block';return true;}
+</script>
+</head>
+<body>
+<div class='page-shell'>
+<header class='navbar'><div class='logo-block'><div class='logo'>Digital Health Awareness System</div><div class='logo-note'>Secure user access</div></div><nav><ul class='nav-links'><li><a href='index.html'>Home</a></li><li><a href='screen.html'>Screen Time</a></li><li><a href='addiction.html'>Cyber Addiction</a></li><li><a href='safety.html'>Social Safety</a></li><li><a href='self-assessment.html'>Self Assessment</a></li><li><a href='doctor.html'>Contact Doctor</a></li><li><a href='resources.html'>Resources</a></li><li><a href='register.html'>Register</a></li><li><a class='active' href='login.html'>Login</a></li></ul></nav></header>
+<div class='auth-shell'><div class='auth-grid'><section class='auth-intro'><span class='eyebrow'>Login</span><h1>Access your digital wellness account.</h1><p>Use this page to sign in securely and continue your assessments, resources, and support journey.</p><ul><li>Validated email and password fields</li><li>POST form configuration for standards-compliant submission</li><li>Responsive layout for mobile and desktop users</li></ul></section><section class='auth-card'><h2>Welcome back</h2><p>Enter your account details to continue.</p><form action='login.html' method='post' enctype='application/x-www-form-urlencoded' accept-charset='UTF-8' onsubmit='return validateLogin();'><div class='form-grid'><div class='field field-full'><label for='loginEmail'>Email Address</label><input type='email' id='loginEmail' name='email_address' /></div><div class='field field-full'><label for='loginPassword'>Password</label><input type='password' id='loginPassword' name='password' /></div></div><div class='actions'><button type='submit'>Login</button></div></form><div id='loginResult' class='result-box'></div><p class='auth-note'>Do not have an account? <a class='inline-link' href='register.html'>Create one here</a>.</p></section></div></div><footer class='footer'><p>© 2026 Digital Health Awareness System</p><p>Login Module</p></footer>
+</div>
+</body>
+</html>

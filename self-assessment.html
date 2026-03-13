@@ -1,149 +1,33 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en'>
 <head>
-<meta charset="UTF-8"/>
-<title>Self Assessment | Digital Health Awareness</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" href="self-assessment.css"/>
-
-<script>
-function calculateAssessment(){
-
-  let total = 0;
-  let checked = document.querySelectorAll(".qa:checked");
-
-  if(checked.length < 10){
-    alert("Please answer all questions to generate your digital health report.");
-    return;
-  }
-
-  checked.forEach(q => {
-    total += parseInt(q.value);
-  });
-
-  let report = document.getElementById("finalReport");
-
-  let level = "";
-  let suggestion = "";
-
-  if(total <= 15){
-    level = "🟢 Excellent Digital Health";
-    suggestion = "You are maintaining healthy digital habits. Continue balancing online and offline activities.";
-  }
-  else if(total <= 22){
-    level = "🟡 Moderate Digital Risk";
-    suggestion = "You show mild signs of digital overuse. Introduce daily screen control and regular detox routines.";
-  }
-  else{
-    level = "🔴 High Digital Risk";
-    suggestion = "Strong signs of cyber addiction detected. Structured intervention and professional guidance are recommended.";
-  }
-
-  report.innerHTML = `
-    <h3>Your Digital Health Report</h3>
-    <p><b>Total Score:</b> ${total}</p>
-    <p><b>Status:</b> ${level}</p>
-    <p><b>Expert Suggestion:</b> ${suggestion}</p>
-
-    <h4>Recommended Actions:</h4>
-    <ul>
-      <li> Follow fixed screen schedules</li>
-      <li> Take digital breaks every 30 minutes</li>
-      <li> Reduce social media dependency</li>
-      <li> Improve sleep hygiene</li>
-      <li> Engage in physical and social activities</li>
-      <li> Seek professional support if needed</li>
-    </ul>
-  `;
-
-  report.style.display = "block";
-}
+<meta charset='UTF-8' />
+<title>Self Assessment | Digital Health Awareness System</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<link rel='stylesheet' href='site.css' />
+<link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet' />
+<script type='text/javascript'>
+function calculateAssessment(){var checked=document.querySelectorAll('.assessment-answer:checked');if(checked.length<10){alert('Please answer all self-assessment questions.');return false;}var total=0;checked.forEach(function(item){total+=parseInt(item.value,10);});var status=total<=15?'Excellent digital balance':(total<=22?'Moderate digital risk':'High digital risk');var guidance=total<=15?'Continue your healthy routines.':(total<=22?'Reduce passive screen time and strengthen sleep habits.':'Your answers suggest problematic overuse; add support and structure now.');var result=document.getElementById('assessmentResult');result.innerHTML='<h3>Your digital health summary</h3><p><strong>Total score:</strong> '+total+'</p><p><strong>Status:</strong> '+status+'</p><p><strong>Guidance:</strong> '+guidance+'</p><ul><li>Plan daily breaks.</li><li>Limit social media at night.</li><li>Keep one screen-free routine every day.</li><li>Seek professional help if symptoms persist.</li></ul>';result.style.display='block';return false;}
+function resetAssessment(){document.querySelectorAll('.assessment-answer').forEach(function(item){item.checked=false;});document.getElementById('assessmentResult').style.display='none';}
 </script>
 </head>
-
 <body>
-
-<!-- ===== NAVBAR ===== -->
-<header class="navbar">
-<h1 class="logo">Digital Health Awareness</h1>
-<nav>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="screen.html">Screen Time</a></li>
-<li><a href="addiction.html">Cyber Addiction</a></li>
-<li><a href="safety.html">Social Safety</a></li>
-<li><a href="doctor.html">Contact Doctor</a></li>
-</ul>
-</nav>
-</header>
-
-<section class="screen-box">
-
-<h2>🧪 Digital Well-Being Self-Assessment</h2>
-<p>Answer honestly to generate your personalized digital health report.</p>
-
-<!-- ===== QUESTIONS ===== -->
-
-<p><b>1. Average daily screen time</b></p>
-<label><input type="radio" name="q1" class="qa" value="1"/> Less than 3 hours</label><br/>
-<label><input type="radio" name="q1" class="qa" value="2"/> 3–6 hours</label><br/>
-<label><input type="radio" name="q1" class="qa" value="3"/> More than 6 hours</label><br/>
-
-<p><b>2. Anxiety without internet access</b></p>
-<label><input type="radio" name="q2" class="qa" value="1"/> Never</label><br/>
-<label><input type="radio" name="q2" class="qa" value="2"/> Sometimes</label><br/>
-<label><input type="radio" name="q2" class="qa" value="3"/> Often</label><br/>
-
-<p><b>3. Phone use immediately after waking up</b></p>
-<label><input type="radio" name="q3" class="qa" value="1"/> Never</label><br/>
-<label><input type="radio" name="q3" class="qa" value="2"/> Sometimes</label><br/>
-<label><input type="radio" name="q3" class="qa" value="3"/> Always</label><br/>
-
-<p><b>4. Sleep disturbance due to screens</b></p>
-<label><input type="radio" name="q4" class="qa" value="1"/> No</label><br/>
-<label><input type="radio" name="q4" class="qa" value="2"/> Sometimes</label><br/>
-<label><input type="radio" name="q4" class="qa" value="3"/> Yes</label><br/>
-
-<p><b>5. Neglecting responsibilities due to online use</b></p>
-<label><input type="radio" name="q5" class="qa" value="1"/> Never</label><br/>
-<label><input type="radio" name="q5" class="qa" value="2"/> Occasionally</label><br/>
-<label><input type="radio" name="q5" class="qa" value="3"/> Frequently</label><br/>
-
-<p><b>6. Feeling bored or empty without devices</b></p>
-<label><input type="radio" name="q6" class="qa" value="1"/> No</label><br/>
-<label><input type="radio" name="q6" class="qa" value="2"/> Sometimes</label><br/>
-<label><input type="radio" name="q6" class="qa" value="3"/> Often</label><br/>
-
-<p><b>7. Checking notifications repeatedly</b></p>
-<label><input type="radio" name="q7" class="qa" value="1"/> Rarely</label><br/>
-<label><input type="radio" name="q7" class="qa" value="2"/> Sometimes</label><br/>
-<label><input type="radio" name="q7" class="qa" value="3"/> Very often</label><br/>
-
-<p><b>8. Mood affected by social media</b></p>
-<label><input type="radio" name="q8" class="qa" value="1"/> No</label><br/>
-<label><input type="radio" name="q8" class="qa" value="2"/> Slightly</label><br/>
-<label><input type="radio" name="q8" class="qa" value="3"/> Strongly</label><br/>
-
-<p><b>9. Awareness of online safety practices</b></p>
-<label><input type="radio" name="q9" class="qa" value="1"/> Very aware</label><br/>
-<label><input type="radio" name="q9" class="qa" value="2"/> Somewhat aware</label><br/>
-<label><input type="radio" name="q9" class="qa" value="3"/> Not aware</label><br/>
-
-<p><b>10. Willingness to reduce screen time</b></p>
-<label><input type="radio" name="q10" class="qa" value="1"/> Already controlled</label><br/>
-<label><input type="radio" name="q10" class="qa" value="2"/> Will try</label><br/>
-<label><input type="radio" name="q10" class="qa" value="3"/> Difficult</label><br/>
-
-<br/>
-<button onclick="calculateAssessment()">Generate My Digital Health Report</button>
-
-<div id="finalReport" class="result-box"></div>
-
-</section>
-
-<footer class="footer">
-<p>© 2026 Digital Health Awareness System | Self-Assessment Module</p>
-</footer>
-
+<div class='page-shell'>
+<header class='navbar'><div class='logo-block'><div class='logo'>Digital Health Awareness System</div><div class='logo-note'>Interactive digital habit assessment</div></div><nav><ul class='nav-links'><li><a href='index.html'>Home</a></li><li><a href='screen.html'>Screen Time</a></li><li><a href='addiction.html'>Cyber Addiction</a></li><li><a href='safety.html'>Social Safety</a></li><li><a class='active' href='self-assessment.html'>Self Assessment</a></li><li><a href='doctor.html'>Contact Doctor</a></li><li><a href='resources.html'>Resources</a></li><li><a href='register.html'>Register</a></li><li><a href='login.html'>Login</a></li></ul></nav></header>
+<section class='hero'><div class='hero-copy'><span class='eyebrow'>Self Assessment Module</span><h2>Check your current digital well-being habits.</h2><p>Answer the following questions honestly to receive a simple digital health summary based on your habits and awareness.</p></div><div class='hero-visual'><div class='hero-card'><img src='assets/images/about.png' alt='Digital habit self assessment' /></div></div></section>
+<section class='section'><div class='panel'><h3>Digital well-being questionnaire</h3><div class='option-list'>
+<div class='question-block'><h3>1. How much screen time do you use each day?</h3><label class='option'><input class='assessment-answer' type='radio' name='q1' value='1' />Less than 3 hours</label><label class='option'><input class='assessment-answer' type='radio' name='q1' value='2' />3 to 6 hours</label><label class='option'><input class='assessment-answer' type='radio' name='q1' value='3' />More than 6 hours</label></div>
+<div class='question-block'><h3>2. How often do you feel anxious without internet access?</h3><label class='option'><input class='assessment-answer' type='radio' name='q2' value='1' />Never</label><label class='option'><input class='assessment-answer' type='radio' name='q2' value='2' />Sometimes</label><label class='option'><input class='assessment-answer' type='radio' name='q2' value='3' />Often</label></div>
+<div class='question-block'><h3>3. Do you check your phone immediately after waking up?</h3><label class='option'><input class='assessment-answer' type='radio' name='q3' value='1' />Never</label><label class='option'><input class='assessment-answer' type='radio' name='q3' value='2' />Sometimes</label><label class='option'><input class='assessment-answer' type='radio' name='q3' value='3' />Always</label></div>
+<div class='question-block'><h3>4. Do screens affect your sleep?</h3><label class='option'><input class='assessment-answer' type='radio' name='q4' value='1' />No</label><label class='option'><input class='assessment-answer' type='radio' name='q4' value='2' />Sometimes</label><label class='option'><input class='assessment-answer' type='radio' name='q4' value='3' />Yes</label></div>
+<div class='question-block'><h3>5. Do you neglect tasks because of online activity?</h3><label class='option'><input class='assessment-answer' type='radio' name='q5' value='1' />Never</label><label class='option'><input class='assessment-answer' type='radio' name='q5' value='2' />Occasionally</label><label class='option'><input class='assessment-answer' type='radio' name='q5' value='3' />Frequently</label></div>
+<div class='question-block'><h3>6. Do you feel bored without your devices?</h3><label class='option'><input class='assessment-answer' type='radio' name='q6' value='1' />No</label><label class='option'><input class='assessment-answer' type='radio' name='q6' value='2' />Sometimes</label><label class='option'><input class='assessment-answer' type='radio' name='q6' value='3' />Often</label></div>
+<div class='question-block'><h3>7. How often do you check notifications repeatedly?</h3><label class='option'><input class='assessment-answer' type='radio' name='q7' value='1' />Rarely</label><label class='option'><input class='assessment-answer' type='radio' name='q7' value='2' />Sometimes</label><label class='option'><input class='assessment-answer' type='radio' name='q7' value='3' />Very often</label></div>
+<div class='question-block'><h3>8. How much does social media affect your mood?</h3><label class='option'><input class='assessment-answer' type='radio' name='q8' value='1' />Not much</label><label class='option'><input class='assessment-answer' type='radio' name='q8' value='2' />A little</label><label class='option'><input class='assessment-answer' type='radio' name='q8' value='3' />A lot</label></div>
+<div class='question-block'><h3>9. How aware are you of online safety practices?</h3><label class='option'><input class='assessment-answer' type='radio' name='q9' value='1' />Very aware</label><label class='option'><input class='assessment-answer' type='radio' name='q9' value='2' />Somewhat aware</label><label class='option'><input class='assessment-answer' type='radio' name='q9' value='3' />Not aware</label></div>
+<div class='question-block'><h3>10. How easy is it for you to reduce screen time?</h3><label class='option'><input class='assessment-answer' type='radio' name='q10' value='1' />Already controlled</label><label class='option'><input class='assessment-answer' type='radio' name='q10' value='2' />Possible with effort</label><label class='option'><input class='assessment-answer' type='radio' name='q10' value='3' />Very difficult</label></div>
+</div><div class='actions'><button type='button' onclick='calculateAssessment()'>Generate Digital Health Report</button><button type='button' class='ghost-btn' onclick='resetAssessment()'>Reset</button></div><div id='assessmentResult' class='result-box'></div></div></section>
+<footer class='footer'><p>© 2026 Digital Health Awareness System</p><p>Self Assessment Module</p></footer>
+</div>
 </body>
 </html>

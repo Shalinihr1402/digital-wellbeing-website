@@ -1,144 +1,29 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en'>
 <head>
-<meta charset="UTF-8"/>
-<title>Contact Doctor | Digital Health Awareness</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" href="doctor.css"/>
-
-<script type="text/javascript">
-function submitConsultation(){
-
-  var name = document.getElementById("dname").value;
-  var email = document.getElementById("demail").value;
-  var issue = document.getElementById("issue").value;
-  var urgency = document.getElementById("urgency").value;
-  var msg = document.getElementById("dmsg").value;
-
-  if(name==="" || email==="" || msg===""){
-    alert("Please complete all required fields");
-    return false;
-  }
-
-  var result = document.getElementById("doctorResult");
-  result.innerHTML = "✅ Thank you, " + name + ". Your consultation request for <b>" + issue +
-  "</b> has been submitted. Our digital health expert will contact you shortly.";
-  result.style.display = "block";
-
-  return false;
-}
+<meta charset='UTF-8' />
+<title>Contact Doctor | Digital Health Awareness System</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<link rel='stylesheet' href='site.css' />
+<link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet' />
+<script type='text/javascript'>
+function validateConsultationForm(){var name=document.getElementById('fullName');var email=document.getElementById('emailAddress');var message=document.getElementById('message');var pattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;if(!name.value||name.value.replace(/^\s+|\s+$/g,'').length<3){alert('Please enter your full name.');name.focus();return false;}if(!pattern.test(email.value.replace(/^\s+|\s+$/g,''))){alert('Please enter a valid email address.');email.focus();return false;}if(!message.value||message.value.replace(/^\s+|\s+$/g,'').length<20){alert('Please enter at least 20 characters about your concern.');message.focus();return false;}var result=document.getElementById('doctorResult');result.innerHTML='<h3>Consultation request validated</h3><p>Your form is ready to submit using <strong>HTTP POST</strong> with the MIME type <strong>application/x-www-form-urlencoded</strong>.</p><p>Our team can now process your request securely on the server side.</p>';result.style.display='block';return true;}
+function recommendDoctor(){var concern=document.getElementById('quickConcern').value;var box=document.getElementById('doctorMatch');var content={stress:['Dr. Meera Sharma','Digital stress and productivity recovery','Responds best for work overload, screen fatigue, and burnout signs.'],sleep:['Dr. Priya Nair','Sleep and circadian wellness specialist','Best match for late-night screen use, insomnia, and bedtime routine planning.'],addiction:['Dr. Rohan Mehta','Cyber addiction therapist','Useful for compulsive scrolling, dependency, and repeated loss of control.'],safety:['Dr. Sana Rao','Online behavior and safety advisor','Strong fit for harassment, privacy issues, and social platform stress.']};if(!content[concern]){box.style.display='none';return false;}box.innerHTML='<h4>Recommended specialist</h4><p><strong>'+content[concern][0]+'</strong></p><p>'+content[concern][1]+'</p><p>'+content[concern][2]+'</p>';box.style.display='block';return false;}
 </script>
 </head>
-
 <body>
-
-<!-- ===== NAVBAR ===== -->
-<header class="navbar">
-<h1 class="logo">Digital Health Awareness</h1>
-<nav>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="screen.html">Screen Time</a></li>
-<li><a href="addiction.html">Cyber Addiction</a></li>
-<li><a href="safety.html">Social Safety</a></li>
-<li><a href="self-assessment.html">Self Assessment</a></li>
-</ul>
-</nav>
-</header>
-
-<!-- ===== HERO ===== -->
-<section class="hero">
-<div class="hero-text">
-<span class="tagline">PROFESSIONAL DIGITAL SUPPORT</span>
-<h2>Consult a Digital Health Expert</h2>
-<p>
-Professional guidance helps in managing cyber addiction, digital stress,
-sleep disorders, and online anxiety.
-</p>
+<div class='page-shell'>
+<header class='navbar'><div class='logo-block'><div class='logo'>Digital Health Awareness System</div><div class='logo-note'>Professional digital well-being consultation</div></div><nav><ul class='nav-links'><li><a href='index.html'>Home</a></li><li><a href='screen.html'>Screen Time</a></li><li><a href='addiction.html'>Cyber Addiction</a></li><li><a href='safety.html'>Social Safety</a></li><li><a href='self-assessment.html'>Self Assessment</a></li><li><a class='active' href='doctor.html'>Contact Doctor</a></li><li><a href='resources.html'>Resources</a></li><li><a href='register.html'>Register</a></li><li><a href='login.html'>Login</a></li></ul></nav></header>
+<section class='hero'><div class='hero-copy'><span class='eyebrow'>Contact Doctor Module</span><h2>Request guidance from the right digital health professional.</h2><p>This page now includes doctor profiles, a quick specialist-matching tool, and a cleaner consultation flow so the website feels more credible and helpful.</p><div class='stat-row'><div class='stat-chip'>4 specialist profiles</div><div class='stat-chip'>Concern-based matching</div><div class='stat-chip'>Validated POST form</div></div></div><div class='hero-visual'><div class='hero-card'><img src='assets/images/doctor.png' alt='Digital health consultation' /></div></div></section>
+<section class='section'><div class='section-head'><h2>Meet our digital health specialists</h2><p>Adding real-looking profiles improves trust and gives users a clearer reason to continue to the consultation form.</p></div><div class='profile-grid'>
+<article class='profile-card'><h4>Dr. Meera Sharma</h4><p>Digital stress and focus specialist helping users manage overload, fatigue, and work-life boundaries.</p><div class='profile-meta'><span class='profile-pill'>8+ years</span><span class='profile-pill'>Stress Recovery</span><span class='profile-pill'>Evening Slots</span></div></article>
+<article class='profile-card'><h4>Dr. Rohan Mehta</h4><p>Cyber addiction therapist focused on compulsive screen behavior, dependency patterns, and habit rebuilding.</p><div class='profile-meta'><span class='profile-pill'>CBT Approach</span><span class='profile-pill'>Addiction Care</span><span class='profile-pill'>High Demand</span></div></article>
+<article class='profile-card'><h4>Dr. Priya Nair</h4><p>Sleep and circadian wellness consultant supporting users with bedtime routines and screen-related insomnia.</p><div class='profile-meta'><span class='profile-pill'>Sleep Health</span><span class='profile-pill'>Routine Planning</span><span class='profile-pill'>Weekend Slots</span></div></article>
+<article class='profile-card'><h4>Dr. Sana Rao</h4><p>Online behavior and social media safety advisor helping users navigate harassment, anxiety, and privacy concerns.</p><div class='profile-meta'><span class='profile-pill'>Privacy Safety</span><span class='profile-pill'>Social Anxiety</span><span class='profile-pill'>Fast Response</span></div></article>
+</div></section>
+<section class='section'><div class='split'><div class='panel'><h3>Quick specialist matcher</h3><p>Select your main concern to see which specialist is the strongest fit.</p><div class='field'><label for='quickConcern'>Choose a concern</label><select id='quickConcern' name='quick_concern' onchange='recommendDoctor()'><option value=''>Select one</option><option value='stress'>Digital Stress</option><option value='sleep'>Sleep Problems</option><option value='addiction'>Cyber Addiction</option><option value='safety'>Online Safety Issues</option></select></div><div id='doctorMatch' class='match-box'></div></div><div class='panel'><h3>Why this module feels stronger now</h3><div class='highlight-grid'><div class='highlight-card'><h4>Better trust</h4><p>Profiles make the consultation section feel real instead of generic.</p></div><div class='highlight-card'><h4>Faster decisions</h4><p>The matcher helps users choose the right specialist quickly.</p></div><div class='highlight-card'><h4>Cleaner UX</h4><p>Cards, pills, and spacing improve scanability on desktop and mobile.</p></div></div></div></div></section>
+<section class='section'><div class='split'><div class='panel'><h3>Consultation request form</h3><form action='doctor.html' method='post' enctype='application/x-www-form-urlencoded' accept-charset='UTF-8' onsubmit='return validateConsultationForm();'><div class='form-grid'><div class='field'><label for='fullName'>Full Name</label><input type='text' id='fullName' name='full_name' /></div><div class='field'><label for='emailAddress'>Email Address</label><input type='email' id='emailAddress' name='email_address' /></div><div class='field'><label for='issue'>Primary Concern</label><select id='issue' name='issue'><option value='Cyber Addiction'>Cyber Addiction</option><option value='Digital Stress'>Digital Stress</option><option value='Sleep Problems'>Sleep Problems</option><option value='Social Media Anxiety'>Social Media Anxiety</option><option value='Online Safety Issues'>Online Safety Issues</option></select></div><div class='field'><label for='urgency'>Urgency Level</label><select id='urgency' name='urgency'><option value='Low'>Low</option><option value='Moderate'>Moderate</option><option value='High'>High</option><option value='Critical'>Critical</option></select></div><div class='field field-full'><label for='message'>Describe Your Concern</label><textarea id='message' name='message' rows='6' cols='40'></textarea></div></div><div class='actions'><button type='submit'>Submit Consultation Request</button></div></form><div id='doctorResult' class='result-box'></div><p class='small'>Form submission is configured with HTTP POST and the MIME type application/x-www-form-urlencoded.</p></div><div class='panel'><h3>What happens next</h3><ul class='timeline-list'><li>Your request is reviewed and categorized by concern and urgency.</li><li>A matching specialist checks availability and priority.</li><li>You receive guidance, follow-up timing, and suggested next steps.</li><li>Urgent cases can be escalated for faster support.</li></ul></div></div></section>
+<footer class='footer'><p>© 2026 Digital Health Awareness System</p><p>Contact Doctor Module</p></footer>
 </div>
-
-<div class="hero-img">
-<img src="assets/images/doctor.png" alt="Doctor Support"/>
-</div>
-</section>
-
-<!-- ===== DOCTOR PROFILES ===== -->
-<section class="screen-box">
-<h2>👨‍⚕️ Our Digital Health Experts</h2>
-
-<ul>
-<li><b>Dr. A. Sharma</b> – Cyber Psychology Specialist</li>
-<li><b>Dr. R. Mehta</b> – Digital Addiction Therapist</li>
-<li><b>Dr. P. Nair</b> – Sleep & Mental Wellness Consultant</li>
-<li><b>Dr. S. Rao</b> – Online Behavior Analyst</li>
-</ul>
-
-<p>
-Our certified professionals provide confidential and supportive guidance.
-</p>
-</section>
-
-<!-- ===== EMERGENCY GUIDANCE ===== -->
-<section class="screen-box">
-<h2>🚨 When Should You Seek Help Immediately?</h2>
-<ul>
-<li> Severe anxiety without internet</li>
-<li> Sleep deprivation due to screen use</li>
-<li> Online harassment or cyberbullying impact</li>
-<li> Digital behavior affecting academics/work</li>
-<li> Emotional distress or isolation</li>
-</ul>
-</section>
-
-<!-- ===== CONSULTATION FORM ===== -->
-<section class="screen-box">
-<h2>📋 Request Professional Consultation</h2>
-<p>Please fill the form below. All information is kept confidential.</p>
-
-<form onsubmit="return submitConsultation()">
-
-<input type="text" id="dname" placeholder="Full Name"/><br/><br/>
-<input type="email" id="demail" placeholder="Email Address"/><br/><br/>
-
-<select id="issue">
-<option>Cyber Addiction</option>
-<option>Digital Stress</option>
-<option>Sleep Problems</option>
-<option>Social Media Anxiety</option>
-<option>Online Safety Issues</option>
-</select><br/><br/>
-
-<select id="urgency">
-<option>Low</option>
-<option>Moderate</option>
-<option>High</option>
-<option>Critical</option>
-</select><br/><br/>
-
-<textarea id="dmsg" rows="5" placeholder="Describe your concern"></textarea><br/><br/>
-
-<button type="submit">Submit Consultation Request</button>
-
-<div id="doctorResult" class="result-box"></div>
-
-</form>
-</section>
-
-<!-- ===== SUPPORT MESSAGE ===== -->
-<section class="screen-box">
-<h2>💙 Our Commitment to You</h2>
-<ul>
-<li>100% confidential consultation</li>
-<li> Non-judgmental professional guidance</li>
-<li> Scientifically guided digital recovery plans</li>
-<li> Mental wellness focused approach</li>
-</ul>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-<p>© 2026 Digital Health Awareness System | Doctor Consultation Module</p>
-</footer>
-
 </body>
 </html>

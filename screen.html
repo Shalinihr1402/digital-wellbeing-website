@@ -1,143 +1,39 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en'>
 <head>
-<meta charset="UTF-8"/>
-<title>Screen Time Management | Digital Health Awareness</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" href="screen.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
-
-<script>
-
+<meta charset='UTF-8' />
+<title>Screen Time Management | Digital Health Awareness System</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<link rel='stylesheet' href='site.css' />
+<link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet' />
+<script type='text/javascript'>
 function analyzeScreen(){
-
-  let hrs = parseFloat(document.getElementById("hours").value);
-  let result = document.getElementById("screenResult");
-  let meter = document.getElementById("riskMeter");
-  let plan = document.getElementById("dynamicPlan");
-  let weekly = document.getElementById("weeklyReport");
-
-  if(isNaN(hrs) || hrs < 0 || hrs > 24){
-    alert("Please enter valid screen hours (0–24).");
-    return;
-  }
-
-  let percentage = Math.min((hrs / 12) * 100, 100);
-  meter.value = percentage;
-
-  let level = "";
-  let advice = "";
-  let color = "";
-
-  if(hrs <= 4){
-    level = "🟢 Healthy Usage";
-    advice = "Great balance! Keep maintaining healthy habits.";
-    color = "#22c55e";
-  }
-  else if(hrs <= 7){
-    level = "🟡 Moderate Usage";
-    advice = "Try reducing unnecessary screen exposure.";
-    color = "#facc15";
-  }
-  else{
-    level = "🔴 High Risk Usage";
-    advice = "Digital detox strongly recommended.";
-    color = "#ef4444";
-  }
-
-  result.innerHTML = `
-    <h3>Your Screen Time Report</h3>
-    <p><b>Daily Hours:</b> ${hrs} hrs</p>
-    <p><b>Weekly Usage:</b> ${(hrs*7).toFixed(1)} hrs</p>
-    <p style="color:${color}; font-weight:bold;">
-      <b>Risk Level:</b> ${level}
-    </p>
-    <p><b>Expert Advice:</b> ${advice}</p>
-  `;
-
-  weekly.innerHTML = `
-    <h4>📅 Weekly Insight</h4>
-    <p>You spend approximately <b>${(hrs*7).toFixed(1)} hours per week</b> on screens.</p>
-  `;
-
-  plan.innerHTML = `
-    <h4>📌 Smart Action Plan</h4>
-    <ul>
-      <li>Follow 20-20-20 eye rule</li>
-      <li>Schedule fixed screen-free hours</li>
-      <li>Enable app usage limits</li>
-      <li>Turn off unnecessary notifications</li>
-      <li>Avoid devices before sleep</li>
-      <li>Replace screen time with exercise</li>
-    </ul>
-  `;
-
-  document.getElementById("meterSection").style.display = "block";
-  result.style.display = "block";
-  plan.style.display = "block";
-  weekly.style.display = "block";
+ var input=document.getElementById('hours');
+ var value=parseFloat(input.value);
+ var meter=document.getElementById('riskMeter');
+ var result=document.getElementById('screenResult');
+ var plan=document.getElementById('weeklyPlan');
+ var meterBox=document.getElementById('screenMeterBox');
+ if(isNaN(value)||value<0||value>24){alert('Please enter daily screen time between 0 and 24 hours.');input.focus();return false;}
+ var weekly=(value*7).toFixed(1);
+ var percent=Math.min(Math.round((value/12)*100),100);
+ var level=value<=4?'Healthy usage':(value<=7?'Moderate usage':'High-risk usage');
+ var advice=value<=4?'Keep using breaks and bedtime boundaries.':(value<=7?'Reduce avoidable scrolling and late-night use.':'Add device-free blocks and seek support if fatigue continues.');
+ meter.value=percent;
+ result.innerHTML='<h3>Your screen-time report</h3><p><strong>Daily screen time:</strong> '+value+' hours</p><p><strong>Weekly estimate:</strong> '+weekly+' hours</p><p><strong>Risk level:</strong> '+level+'</p><p><strong>Recommendation:</strong> '+advice+'</p>';
+ plan.innerHTML='<h3>Healthy weekly action plan</h3><ul><li>Follow the 20-20-20 eye rule.</li><li>Keep one device-free hour before sleep.</li><li>Turn off non-essential notifications.</li><li>Schedule offline exercise or reading every day.</li></ul>';
+ result.style.display='block';plan.style.display='block';meterBox.style.display='block';return false;
 }
-
-function resetScreen(){
-  document.getElementById("hours").value = "";
-  document.getElementById("screenResult").style.display = "none";
-  document.getElementById("dynamicPlan").style.display = "none";
-  document.getElementById("meterSection").style.display = "none";
-  document.getElementById("weeklyReport").style.display = "none";
-}
-
+function resetScreen(){document.getElementById('hours').value='';document.getElementById('riskMeter').value=0;document.getElementById('screenResult').style.display='none';document.getElementById('weeklyPlan').style.display='none';document.getElementById('screenMeterBox').style.display='none';}
 </script>
 </head>
-
 <body>
-
-<header class="navbar">
-<h1 class="logo">Digital Health Awareness</h1>
-<nav>
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="addiction.html">Cyber Addiction</a></li>
-<li><a href="safety.html">Social Safety</a></li>
-<li><a href="self-assessment.html">Self Assessment</a></li>
-<li><a href="doctor.html">Contact Doctor</a></li>
-</ul>
-</nav>
-</header>
-
-<section class="hero">
-<div class="hero-text">
-<span class="tagline">SCREEN TIME ANALYSIS SYSTEM</span>
-<h2>Interactive Digital Exposure Evaluation</h2>
-<p>Evaluate your daily screen exposure and receive personalized wellness guidance.</p>
+<div class='page-shell'>
+<header class='navbar'><div class='logo-block'><div class='logo'>Digital Health Awareness System</div><div class='logo-note'>Screen-time education and self-review</div></div><nav><ul class='nav-links'><li><a href='index.html'>Home</a></li><li><a class='active' href='screen.html'>Screen Time</a></li><li><a href='addiction.html'>Cyber Addiction</a></li><li><a href='safety.html'>Social Safety</a></li><li><a href='self-assessment.html'>Self Assessment</a></li><li><a href='doctor.html'>Contact Doctor</a></li><li><a href='resources.html'>Resources</a></li><li><a href='register.html'>Register</a></li><li><a href='login.html'>Login</a></li></ul></nav></header>
+<section class='hero'><div class='hero-copy'><span class='eyebrow'>Screen Time Management</span><h2>Track daily exposure and reduce digital fatigue.</h2><p>This module helps users understand how much daily screen use can affect sleep, focus, eye comfort, and productivity.</p></div><div class='hero-visual'><div class='hero-card'><img src='assets/images/screen-time.png' alt='Screen time awareness' /></div></div></section>
+<section class='section'><div class='split'><div class='panel'><h3>Why screen balance matters</h3><ul><li>Too much screen time can contribute to headaches and eye strain.</li><li>Late-night device use often reduces sleep quality.</li><li>Frequent notifications interrupt concentration and work quality.</li></ul></div><div class='panel'><h3>Risk analyzer</h3><div class='field'><label for='hours'>Enter your average daily screen time in hours</label><input type='number' id='hours' min='0' max='24' step='0.5' /></div><div class='actions'><button type='button' onclick='analyzeScreen()'>Generate Report</button><button type='button' class='ghost-btn' onclick='resetScreen()'>Reset</button></div><div id='screenResult' class='result-box'></div></div></div></section>
+<section class='section'><div id='screenMeterBox' class='meter-box'><h3>Digital exposure indicator</h3><progress id='riskMeter' value='0' max='100'></progress><p class='small'>Higher values indicate stronger need for structured breaks and reduced non-essential use.</p></div><div id='weeklyPlan' class='tips-box'></div></section>
+<footer class='footer'><p>© 2026 Digital Health Awareness System</p><p>Screen Time Management Module</p></footer>
 </div>
-
-<div class="hero-img">
-<img src="assets/images/screen-time.png" alt="Screen Time"/>
-</div>
-</section>
-
-<section class="screen-box">
-<h2>📊 Screen Time Risk Analyzer</h2>
-<input type="number" id="hours" placeholder="Enter hours (0-24)" min="0" max="24"/>
-<br/><br/>
-<button onclick="analyzeScreen()">Generate Report</button>
-<button onclick="resetScreen()">Reset</button>
-
-<div id="screenResult" class="result-box" style="display:none;"></div>
-</section>
-
-<section id="meterSection" class="screen-box" style="display:none;">
-<h2>📈 Digital Risk Indicator</h2>
-<progress id="riskMeter" value="0" max="100"></progress>
-</section>
-
-<section id="weeklyReport" class="screen-box" style="display:none;"></section>
-
-<section id="dynamicPlan" class="screen-box" style="display:none;"></section>
-
-<footer class="footer">
-<p>© 2026 Digital Health Awareness System</p>
-</footer>
-
 </body>
 </html>

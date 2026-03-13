@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en'>
+<head>
+<meta charset='UTF-8' />
+<title>Register | Digital Health Awareness System</title>
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<link rel='stylesheet' href='site.css' />
+<link href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet' />
+<script type='text/javascript'>
+function validateRegister(){var name=document.getElementById('registerName');var email=document.getElementById('registerEmail');var password=document.getElementById('registerPassword');var confirm=document.getElementById('confirmPassword');var pattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;if(name.value.replace(/^\s+|\s+$/g,'').length<3){alert('Please enter your full name.');name.focus();return false;}if(!pattern.test(email.value.replace(/^\s+|\s+$/g,''))){alert('Please enter a valid email address.');email.focus();return false;}if(password.value.length<6){alert('Password must be at least 6 characters long.');password.focus();return false;}if(password.value!==confirm.value){alert('Passwords do not match.');confirm.focus();return false;}var result=document.getElementById('registerResult');result.innerHTML='<h3>Registration form validated</h3><p>Your account details are ready to submit using HTTP POST with the MIME type <strong>application/x-www-form-urlencoded</strong>.</p>';result.style.display='block';return true;}
+</script>
+</head>
+<body>
+<div class='page-shell'>
+<header class='navbar'><div class='logo-block'><div class='logo'>Digital Health Awareness System</div><div class='logo-note'>Create a digital wellness account</div></div><nav><ul class='nav-links'><li><a href='index.html'>Home</a></li><li><a href='screen.html'>Screen Time</a></li><li><a href='addiction.html'>Cyber Addiction</a></li><li><a href='safety.html'>Social Safety</a></li><li><a href='self-assessment.html'>Self Assessment</a></li><li><a href='doctor.html'>Contact Doctor</a></li><li><a href='resources.html'>Resources</a></li><li><a class='active' href='register.html'>Register</a></li><li><a href='login.html'>Login</a></li></ul></nav></header>
+<div class='auth-shell'><div class='auth-grid'><section class='auth-intro'><span class='eyebrow'>Register</span><h1>Join the digital wellness platform.</h1><p>Create an account to manage your learning progress, review your assessments, and return to resources more easily.</p><ul><li>Clear validation for name, email, and passwords</li><li>POST-based form structure with standards-compliant attributes</li><li>Responsive two-column layout with strong visual hierarchy</li></ul></section><section class='auth-card'><h2>Create account</h2><p>Fill in the details below to register properly.</p><form action='register.html' method='post' enctype='application/x-www-form-urlencoded' accept-charset='UTF-8' onsubmit='return validateRegister();'><div class='form-grid'><div class='field field-full'><label for='registerName'>Full Name</label><input type='text' id='registerName' name='full_name' /></div><div class='field field-full'><label for='registerEmail'>Email Address</label><input type='email' id='registerEmail' name='email_address' /></div><div class='field'><label for='registerPassword'>Password</label><input type='password' id='registerPassword' name='password' /></div><div class='field'><label for='confirmPassword'>Confirm Password</label><input type='password' id='confirmPassword' name='confirm_password' /></div></div><div class='actions'><button type='submit'>Register</button></div></form><div id='registerResult' class='result-box'></div><p class='auth-note'>Already registered? <a class='inline-link' href='login.html'>Go to login</a>.</p></section></div></div><footer class='footer'><p>© 2026 Digital Health Awareness System</p><p>Registration Module</p></footer>
+</div>
+</body>
+</html>
